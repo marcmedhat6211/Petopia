@@ -8,6 +8,7 @@ import { SingleComponent } from './components/single/single.component';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { CalendarComponent } from './calendar/calendar.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { CalendarComponent } from './calendar/calendar.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory })
   ],
   providers: [],
