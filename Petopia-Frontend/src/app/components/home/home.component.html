@@ -109,7 +109,7 @@
                        
                     </div>
                     <div class="service_content text-center" style="padding-top: 20px;">
-                        <a href="about.html" class="genric-btn danger circle">Details</a>  
+                        <a [routerLink]="'/single'" class="genric-btn danger circle">Details</a>  
                     </div>
                    
                 </div>
@@ -126,8 +126,7 @@
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut</p>
                     </div>
                     <div class="service_content text-center" style="padding-top: 20px;">
-                        <a href="about.html" class="genric-btn danger circle">Details</a>  
-                    </div>
+                        <a [routerLink]="'/single'" class="genric-btn danger circle">Details</a>                      </div>
                    
                 </div>
             </div>
@@ -146,8 +145,7 @@
                     
                     </div>
                     <div class="service_content text-center" style="padding-top: 20px;">
-                        <a href="about.html" class="genric-btn danger circle">Details</a>  
-                    </div>
+                        <a [routerLink]="'/single'" class="genric-btn danger circle">Details</a>                     </div>
                    
                 </div>
             </div>
@@ -256,6 +254,7 @@
                                 document.write(new Date().getFullYear());
                             </script> All rights reserved | <a href="https://colorlib.com" target="_blank">Colorlib</a>
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                          
 
                         </p>
                 </div>
@@ -264,3 +263,4 @@
     </div>
 </footer>
 <!-- footer_end  -->
+<router-outlet></router-outlet>
