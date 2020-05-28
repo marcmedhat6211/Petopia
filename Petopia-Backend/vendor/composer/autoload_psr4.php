@@ -11,7 +11,7 @@ return array(
     'XdgBaseDir\\' => array($vendorDir . '/dnoegel/php-xdg-base-dir/src'),
     'Whoops\\' => array($vendorDir . '/filp/whoops/src/Whoops'),
     'Webmozart\\Assert\\' => array($vendorDir . '/webmozart/assert/src'),
-    'VoyagerBread\\' => array($vendorDir . '/voyager-bread-generator/src'),
+    'VoyagerBread\\' => array($vendorDir . '/gruz/voyager-bread-generator/src', $vendorDir . '/voyager-bread-generator/src'),
     'TijsVerkoyen\\CssToInlineStyles\\' => array($vendorDir . '/tijsverkoyen/css-to-inline-styles/src'),
     'Tests\\' => array($baseDir . '/tests'),
     'TCG\\Voyager\\' => array($vendorDir . '/tcg/voyager/src'),

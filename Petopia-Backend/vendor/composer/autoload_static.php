@@ -211,7 +211,8 @@ class ComposerStaticInite0a4f84760ce6411527b8d2a683f34be
         ),
         'VoyagerBread\\' => 
         array (
-            0 => __DIR__ . '/..' . '/voyager-bread-generator/src',
+            0 => __DIR__ . '/..' . '/gruz/voyager-bread-generator/src',
+            1 => __DIR__ . '/..' . '/voyager-bread-generator/src',
         ),
         'TijsVerkoyen\\CssToInlineStyles\\' => 
         array (
@@ -5801,9 +5802,9 @@ class ComposerStaticInite0a4f84760ce6411527b8d2a683f34be
         'TijsVerkoyen\\CssToInlineStyles\\Css\\Rule\\Processor' => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src/Css/Rule/Processor.php',
         'TijsVerkoyen\\CssToInlineStyles\\Css\\Rule\\Rule' => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src/Css/Rule/Rule.php',
         'TranslationsTableSeeder' => __DIR__ . '/../..' . '/database/seeds/TranslationsTableSeeder.php',
-        'VoyagerBread\\BreadGeneratorServiceProvider' => __DIR__ . '/..' . '/voyager-bread-generator/src/BreadGeneratorServiceProvider.php',
-        'VoyagerBread\\Commands\\BreadGenerator' => __DIR__ . '/..' . '/voyager-bread-generator/src/Commands/BreadGenerator.php',
-        'VoyagerBread\\Traits\\BreadSeeder' => __DIR__ . '/..' . '/voyager-bread-generator/src/Traits/BreadSeeder.php',
+        'VoyagerBread\\BreadGeneratorServiceProvider' => __DIR__ . '/..' . '/gruz/voyager-bread-generator/src/BreadGeneratorServiceProvider.php',
+        'VoyagerBread\\Commands\\BreadGenerator' => __DIR__ . '/..' . '/gruz/voyager-bread-generator/src/Commands/BreadGenerator.php',
+        'VoyagerBread\\Traits\\BreadSeeder' => __DIR__ . '/..' . '/gruz/voyager-bread-generator/src/Traits/BreadSeeder.php',
         'VoyagerDatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/VoyagerDatabaseSeeder.php',
         'VoyagerDummyDatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/VoyagerDummyDatabaseSeeder.php',
         'Webmozart\\Assert\\Assert' => __DIR__ . '/..' . '/webmozart/assert/src/Assert.php',
