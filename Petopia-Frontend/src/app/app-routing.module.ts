@@ -2,6 +2,7 @@ import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { SingleComponent } from './components/single/single.component';
 import { HomeComponent } from './components/home/home.component';
+import { CalendarComponent } from './calendar/calendar.component';
 
 
 const routes: Routes = [
@@ -10,7 +11,9 @@ const routes: Routes = [
   component: HomeComponent
   },
   {path: 'single',
-  component: SingleComponent} 
+  component: SingleComponent} ,
+  {path: 'calendar',
+  component: CalendarComponent} 
 ];
 
 @NgModule({
