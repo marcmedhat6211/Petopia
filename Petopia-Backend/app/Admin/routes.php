@@ -31,4 +31,7 @@ Route::group([
     /*CAGE ROUTES*/ 
     $router->resource('cages', CageController::class);
 
+    /*CONSULTATION ROUTES*/
+    $router->resource('consultations', ConsultationController::class);
+
 });

@@ -68,13 +68,13 @@ class BoardingController extends AdminController
      */
     protected function form()
     {
-        $form = new Form(new Boarding());
-
+        $form = new Form(new Boarding());        
+        
         $form->select('pet_id',__('Pet Name'))->options(Pet::all()->pluck('name','id'));
         $form->select('reservation_id',__('Reservation'))->options(Reservation::all()->pluck('date','id'));
-        $form->select('cage_id',__('Cage Number'))->options(Cage::all()->pluck('id','id'));
+        $form->select('cage_id',__('Available Cages'))->options(Cage::get()->where("availability","Available")->pluck('id','id'));
         $form->datetime('end_date', __('End date'))->default(date('Y-m-d H:i:s'));
 
-        return $form;
+        return $form;      
     }
 }
