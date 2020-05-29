@@ -15,5 +15,8 @@ Route::group([
 
     /*USER ROUTE*/
     $router->resource('users', UserController::class);
+    
+    /*PET ROUTE*/
+    $router->resource('pets', PetController::class);
 
 });

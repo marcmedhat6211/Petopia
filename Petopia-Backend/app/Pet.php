@@ -20,4 +20,9 @@ class Pet extends Model
     {
         return $this->hasMany('App\Consultation');
     }
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }
