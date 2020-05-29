@@ -9,6 +9,8 @@ import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { CalendarComponent } from './calendar/calendar.component';
 import { FormsModule } from '@angular/forms';
+import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,11 @@ import { FormsModule } from '@angular/forms';
     
     SingleComponent,
     
-    CalendarComponent
+    CalendarComponent,
+    
+    RegisterComponent,
+    
+    LoginComponent
   ],
   imports: [
     BrowserModule,
