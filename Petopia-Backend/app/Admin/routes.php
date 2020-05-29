@@ -13,4 +13,7 @@ Route::group([
 
     $router->get('/', 'HomeController@index')->name('home');
 
+    /*USER ROUTE*/
+    $router->resource('users', UserController::class);
+
 });
