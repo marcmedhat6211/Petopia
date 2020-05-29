@@ -15,4 +15,19 @@ class Reservation extends Model
     {
         return $this->hasMany('App\Consultation');
     }
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
+
+    public function pet()
+    {
+        return $this->belongsTo('App\Pet');
+    }
+
+    public function service()
+    {
+        return $this->belongsTo('App\Service');
+    }
 }

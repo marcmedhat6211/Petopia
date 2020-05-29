@@ -19,4 +19,10 @@ Route::group([
     /*PET ROUTE*/
     $router->resource('pets', PetController::class);
 
+    /*SERVICE ROUTE*/
+    $router->resource('services', ServiceController::class);
+
+    /*RESERVATION ROUTE*/
+    $router->resource('reservations', ReservationController::class);
+
 });
