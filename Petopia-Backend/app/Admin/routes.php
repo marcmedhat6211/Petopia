@@ -13,16 +13,22 @@ Route::group([
 
     $router->get('/', 'HomeController@index')->name('home');
 
-    /*USER ROUTE*/
+    /*USER ROUTES*/
     $router->resource('users', UserController::class);
-    
-    /*PET ROUTE*/
+
+    /*PET ROUTES*/
     $router->resource('pets', PetController::class);
 
-    /*SERVICE ROUTE*/
+    /*SERVICE ROUTES*/
     $router->resource('services', ServiceController::class);
 
-    /*RESERVATION ROUTE*/
+    /*RESERVATION ROUTES*/
     $router->resource('reservations', ReservationController::class);
+
+    /*BOARDING ROUTES*/ 
+    $router->resource('boardings', BoardingController::class);
+    
+    /*CAGE ROUTES*/ 
+    $router->resource('cages', CageController::class);
 
 });
