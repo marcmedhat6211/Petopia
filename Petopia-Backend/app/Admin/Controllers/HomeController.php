@@ -12,6 +12,7 @@ class HomeController extends Controller
 {
     public function index(Content $content)
     {
+
         return $content
             ->title('Dashboard')
             ->description('Description...')
@@ -29,6 +30,15 @@ class HomeController extends Controller
                 $row->column(4, function (Column $column) {
                     $column->append(Dashboard::dependencies());
                 });
+
+            
+
+                
             });
+            // ->breadcrumb(
+            //     ['text' => 'Dashboard', 'url' => '/admin'],
+            //     ['text' => 'User management', 'url' => '/admin/users'],
+            //     ['text' => 'Edit user']
+            // );
     }
 }
