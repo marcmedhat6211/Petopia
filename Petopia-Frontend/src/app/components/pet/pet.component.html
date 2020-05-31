@@ -1,0 +1,57 @@
+<div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins ">
+    <div class="wrapper wrapper--w680">
+        <div class="card card-4">
+            <div class="card-body">
+                <h2 class="title">Registration Form</h2>
+                <form method="POST" #userRegistrationForm="ngForm">
+                    <div class="row row-space">
+                        <div class="col-6">
+                            <div class="input-group">
+                                <label class="label">User Name</label>
+                                <input class="input--style-4" type="text" name="UserName" #UserName="ngModel" [(ngModel)]="user.UserName" required minlength="3">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="input-group">
+                                <label class="label">Email</label>
+                                <input class="input--style-4" type="email" name="Email" #Email="ngModel" [(ngModel)]="user.Email" required>
+                            </div>
+                        </div>     
+                    </div>
+                    <div class="row row-space">
+                        <div class="col-6">
+                            <div class="input-group">
+                                <label class="label">Password</label>
+                                <input class="input--style-4" type="password" name="Password" #Password="ngModel" [(ngModel)]="user.Password" required minlength="6">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="input-group">
+                                <label class="label">Phone Number</label>
+                                <input class="input--style-4" type="text" name="PhoneNumber" #PhoneNumber="ngModel" [(ngModel)]="user.PhoneNumber" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-space">
+                        <div class="col-6">
+                            <div class="input-group">
+                                <label class="label">Recommendation</label>
+                                <input class="input--style-4" type="text" name="Recommendation" #Recommendation="ngModel" [(ngModel)]="user.Recommendation">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="input-group">
+                                <label class="label">Address</label>
+                                <input class="input--style-4" type="text" name="Address" #Address="ngModel" [(ngModel)]="user.Address">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-t-15 text-center">
+                        <button class="btn btn-primary btn-lg"  type="submit" [disabled]="!userRegistrationForm.valid">Sign Up</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
