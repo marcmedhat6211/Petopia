@@ -30,3 +30,7 @@ Route::post('/login','LoginController@login');
 /* LOGOUT ROUTE */
 
 Route::post('/logout','LoginController@logout');
+/* SERVICE ROUTE */
+Route::get('/services', 'API\ServiceController@index');
+    
+
