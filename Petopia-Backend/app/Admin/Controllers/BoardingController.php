@@ -70,11 +70,11 @@ class BoardingController extends AdminController
     {
         $form = new Form(new Boarding());        
         
-        $form->select('pet_id',__('Pet Name'))->options(Pet::all()->pluck('name','id'));
-        $form->select('reservation_id',__('Reservation'))->options(Reservation::all()->pluck('date','id'));
-        $form->select('cage_id',__('Available Cages'))->options(Cage::get()->where("availability","Available")->pluck('id','id'));
-        $form->datetime('end_date', __('End date'))->default(date('Y-m-d H:i:s'));
-
+        $form->select('pet_id',__('Pet Name'))->options(Pet::all()->pluck('name','id'))->rules('required');
+        $form->select('reservation_id',__('Reservation'))->options(Reservation::all()->pluck('date','id'))->rules('required');
+        $form->select('cage_id',__('Available Cages'))->options(Cage::get()->where("availability","Available")->pluck('id','id'))->rules('required');
+        $form->datetime('end_date', __('End date'))->default(date('Y-m-d H:i:s'))->rules('required');
+        //takes old dates
         return $form;      
     }
 }
