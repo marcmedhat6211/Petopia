@@ -81,7 +81,7 @@ class UserController extends AdminController
             'regex' => 'at least one letter and one number',
         ]);
         $form->text('phone_number', __('Phone number'))->rules('required|min:11');
-        $form->textarea('recommendation', __('Recommendation'))->rules('nullable');
+        $form->textarea('recommendation', __('Recommendation'));
         $form->text('address', __('Address'))->rules('required');
 
         return $form;
