@@ -1,13 +1,11 @@
 <div class="container">
 
 
-
 <div class="row text-center">
-  <div class="col-md-4">
+  <div class="col-sd-2">
     <div class="btn-group">
       <div
-        class="btn btn-"
-        class= "calendar-btn"
+        class="btn btn-primary"
         mwlCalendarPreviousView
         [view]="view"
         [(viewDate)]="viewDate"
@@ -16,16 +14,14 @@
         Previous
       </div>
       <div
-        class="btn btn-outline"
-        class= "calendar-btn"
+        class="btn btn-outline-secondary"
         mwlCalendarToday
         [(viewDate)]="viewDate"
       >
         Today
       </div>
       <div
-        class="btn btn-"
-        class= "calendar-btn"
+        class="btn btn-primary"
         mwlCalendarNextView
         [view]="view"
         [(viewDate)]="viewDate"
@@ -35,7 +31,7 @@
       </div>
     </div>
   </div>
-  <div class="col-md-4">
+  <div class="col-md-2">
     <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h3>
   </div>
   <div class="col-md-4">
@@ -96,5 +92,7 @@
   >
   </mwl-calendar-day-view>
 </div>
+
+<!-- Everything you see below is just for the demo, you don't need to include it in your app -->
 
 </div>
