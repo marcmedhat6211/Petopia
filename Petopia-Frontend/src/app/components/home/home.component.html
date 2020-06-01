@@ -58,7 +58,7 @@
 
             </div>
         </div>
-        <div class="row justify-content-center">
+        <div *ngFor="let s of service | keyvalue" class="row justify-content-center">
             <div class="col-lg-4 col-md-6">
                 <div class="single_service" style="padding-bottom: 20px;">
                     <div class="service_thumb service_icon_bg_1 d-flex align-items-center justify-content-center">
@@ -67,14 +67,12 @@
                         </div>
                     </div>
                     <div class="service_content text-center">
-                        <h3>Pet Boarding</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut</p>
-
+                        <h3>{{s.value[0].service_name}}</h3>
+                        <p>{{s.value[0].description}}</p>
                     </div>
                     <div class="service_content text-center" style="padding-top: 20px;">
                         <a [routerLink]="'/single'" class="genric-btn danger circle">Details</a>
                     </div>
-
                 </div>
             </div>
             <div class="col-lg-4 col-md-6">
@@ -85,12 +83,12 @@
                         </div>
                     </div>
                     <div class="service_content text-center">
-                        <h3>Healthy Meals</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut</p>
+                        <h3>{{s.value[1].service_name}}</h3>
+                        <p>{{s.value[1].description}}</p>
                     </div>
                     <div class="service_content text-center" style="padding-top: 20px;">
-                        <a [routerLink]="'/single'" class="genric-btn danger circle">Details</a> </div>
-
+                        <a [routerLink]="'/single'" class="genric-btn danger circle">Details</a> 
+                    </div>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6">
@@ -98,18 +96,78 @@
                     <div class="service_thumb service_icon_bg_1 d-flex align-items-center justify-content-center">
                         <div class="service_icon">
                             <img src="assets/img/service/service_icon_3.png" alt="">
-
                         </div>
                     </div>
-
                     <div class="service_content text-center">
-                        <h3>Pet Spa</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut</p>
-
+                        <h3>{{s.value[2].service_name}}</h3>
+                        <p>{{s.value[2].description}}</p>
                     </div>
                     <div class="service_content text-center" style="padding-top: 20px;">
                         <a [routerLink]="'/single'" class="genric-btn danger circle">Details</a> </div>
-
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="single_service" style="padding-bottom: 20px;">
+                    <div class="service_thumb service_icon_bg_1 d-flex align-items-center justify-content-center">
+                        <div class="service_icon">
+                            <img src="assets/img/service/service_icon_1.png" alt="">
+                        </div>
+                    </div>
+                    <div class="service_content text-center">
+                        <h3>{{s.value[3].service_name}}</h3>
+                        <p>{{s.value[3].description}}</p>
+                    </div>
+                    <div class="service_content text-center" style="padding-top: 20px;">
+                        <a [routerLink]="'/single'" class="genric-btn danger circle">Details</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="single_service" style="padding-bottom: 20px;">
+                    <div class="service_thumb service_icon_bg_1 d-flex align-items-center justify-content-center">
+                        <div class="service_icon">
+                            <img src="assets/img/service/service_icon_1.png" alt="">
+                        </div>
+                    </div>
+                    <div class="service_content text-center">
+                        <h3>{{s.value[4].service_name}}</h3>
+                        <p>{{s.value[4].description}}</p>
+                    </div>
+                    <div class="service_content text-center" style="padding-top: 20px;">
+                        <a [routerLink]="'/single'" class="genric-btn danger circle">Details</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="single_service" style="padding-bottom: 20px;">
+                    <div class="service_thumb service_icon_bg_1 d-flex align-items-center justify-content-center">
+                        <div class="service_icon">
+                            <img src="assets/img/service/service_icon_1.png" alt="">
+                        </div>
+                    </div>
+                    <div class="service_content text-center">
+                        <h3>{{s.value[5].service_name}}</h3>
+                        <p>{{s.value[5].description}}</p>
+                    </div>
+                    <div class="service_content text-center" style="padding-top: 20px;">
+                        <a [routerLink]="'/single'" class="genric-btn danger circle">Details</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="single_service" style="padding-bottom: 20px;">
+                    <div class="service_thumb service_icon_bg_1 d-flex align-items-center justify-content-center">
+                        <div class="service_icon">
+                            <img src="assets/img/service/service_icon_1.png" alt="">
+                        </div>
+                    </div>
+                    <div class="service_content text-center">
+                        <h3>{{s.value[6].service_name}}</h3>
+                        <p>{{s.value[6].description}}</p>
+                    </div>
+                    <div class="service_content text-center" style="padding-top: 20px;">
+                        <a [routerLink]="'/single'" class="genric-btn danger circle">Details</a>
+                    </div>
                 </div>
             </div>
         </div>
