@@ -29,7 +29,7 @@ Route::post('/login','LoginController@login');
 
 /* LOGOUT ROUTE */
 
-Route::post('/logout','LoginController@logout');
+Route::post('/logout','LoginController@logout')->middleware('auth:sanctum');
 /* SERVICE ROUTE */
 Route::get('/services', 'API\ServiceController@index');
     
