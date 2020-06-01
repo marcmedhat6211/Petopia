@@ -86,11 +86,23 @@ class DatabaseSeeder extends Seeder
             'created_at' => null,
             'updated_at' => null
             ]);
-            
 
-            
+         DB::table('services')->insert([
+            'name' => 'Grooming',
+            'hint' => "Cut your pet's hair",
+            'description' => 'your dog will look pretty'
+         ]);
 
-        
+         DB::table('services')->insert([
+            'name' => 'Medical Shower',
+            'hint' => "Give your pet a good bath",
+            'description' => 'your dog will smell great'
+         ]);
 
+         DB::table('services')->insert([
+            'name' => 'Boarding',
+            'hint' => "Don't worry about being away",
+            'description' => 'your dog is in great hands'
+         ]);
    }
 }
