@@ -72,10 +72,10 @@ class ReservationController extends AdminController
     {
         $form = new Form(new Reservation());
 
-        $form->select('user_id',__('Pet Owner'))->options(User::all()->pluck('name','id'));
-        $form->select('pet_id',__('Pet Name'))->options(Pet::all()->pluck('name','id'));
+        $form->select('user_id',__('Pet Owner'))->options(User::all()->pluck('name','id'))->rules('required');
+        $form->select('pet_id',__('Pet Name'))->options(Pet::all()->pluck('name','id'))->rules('required');
         $form->select('service_id',__('Service'))->options(Service::all()->pluck('name','id'));
-        $form->datetime('date', __('Date'))->default(date('Y-m-d H:i:s'));
+        $form->datetime('date', __('Date'))->default(date('Y-m-d H:i:s'))->rules('required|min:3');
         $form->select('status',__('Status'))->options([
             'pending' => 'Pending',
             'completed' => 'completed',
