@@ -64,7 +64,7 @@ class ServiceController extends AdminController
         $form = new Form(new Service());
 
         $form->text('name', __('Name'));
-        $form->textarea('description', __('Description'));
+        $form->textarea('description', __('Description'))->rules('required');
 
         return $form;
     }

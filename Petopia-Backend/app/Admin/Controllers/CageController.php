@@ -65,7 +65,7 @@ class CageController extends AdminController
 
         // $form->text('availability', __('Availability'));
         $form->radio('availability')->options(['Available' => 'Available', 'Not Available'=> 'Not Available'])->default('Available'); 
-        $form->textarea('description', __('Description'));
+        $form->textarea('description', __('Description'))->rules('required');
 
         return $form;
     }
