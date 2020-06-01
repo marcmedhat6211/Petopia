@@ -14,12 +14,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+   
+/*REGISTER ROUTE*/
+
+Route::post('/register','RegisterController@register');
+
+/*LOGIN ROUTE */
+
+Route::post('/login','LoginController@login');
+
+/* LOGOUT ROUTE */
+
+Route::post('/logout','LoginController@logout')->middleware('auth:sanctum');
 /* SERVICE ROUTE */
 Route::get('/services', 'API\ServiceController@index');
+
+/* Reservation route */
+ Route::post('/reservations','API\ReservationController@store') ;
     
-/* REGISTRATION ROUTE */
-Route::post('/register','Api\AuthController@register');
+
