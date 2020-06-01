@@ -20,6 +20,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 /* SERVICE ROUTE */
 Route::get('/services', 'API\ServiceController@index');
+
+/* Reservation route */
+ Route::post('/reservations','API\ReservationController@store') ;
     
 /* REGISTRATION ROUTE */
 Route::post('/register','Api\AuthController@register');
