@@ -5,6 +5,7 @@ namespace App\Admin\Controllers;
 use App\User;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
+use Encore\Admin\Form\Field\Nullable;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
 
@@ -73,13 +74,15 @@ class UserController extends AdminController
     {
         $form = new Form(new User());
 
-        $form->text('name', __('Name'));
-        $form->email('email', __('Email'));
-        $form->datetime('email_verified_at', __('Email verified at'))->default(date('Y-m-d H:i:s'));
-        $form->password('password', __('Password'));
-        $form->text('phone_number', __('Phone number'));
-        $form->textarea('recommendation', __('Recommendation'));
-        $form->text('address', __('Address'));
+        $form->text('name', __('Name'))->rules('required|min:3');
+        $form->email('email', __('Email'))->rules('required');
+        $form->datetime('email_verified_at', __('Email verified at'))->default(date('Y-m-d H:i:s'))->rules('required');
+        $form->password('password', __('Password'))->rules('required|min:6|regex:"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"', [
+            'regex' => 'at least one letter and one number',
+        ]);
+        $form->text('phone_number', __('Phone number'))->rules('required|min:11');
+        $form->textarea('recommendation', __('Recommendation'))->rules('nullable');
+        $form->text('address', __('Address'))->rules('required');
 
         return $form;
     }
