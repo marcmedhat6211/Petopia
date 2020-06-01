@@ -59,7 +59,7 @@
             </div>
         </div>
         <div class="row justify-content-center">
-            <div class="col-lg-4 col-md-6">
+            <div *ngFor="let s of service.data; let i of index" class="col-lg-4 col-md-6">
                 <div class="single_service" style="padding-bottom: 20px;">
                     <div class="service_thumb service_icon_bg_1 d-flex align-items-center justify-content-center">
                         <div class="service_icon">
@@ -67,49 +67,11 @@
                         </div>
                     </div>
                     <div class="service_content text-center">
-                        <h3>Pet Boarding</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut</p>
-
+                        <h3>{{s.service_name}}</h3>
                     </div>
                     <div class="service_content text-center" style="padding-top: 20px;">
                         <a [routerLink]="'/single'" class="genric-btn danger circle">Details</a>
                     </div>
-
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="single_service active" style="padding-bottom: 20px;">
-                    <div class="service_thumb service_icon_bg_1 d-flex align-items-center justify-content-center">
-                        <div class="service_icon">
-                            <img src="assets/img/service/service_icon_2.png" alt="">
-                        </div>
-                    </div>
-                    <div class="service_content text-center">
-                        <h3>Healthy Meals</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut</p>
-                    </div>
-                    <div class="service_content text-center" style="padding-top: 20px;">
-                        <a [routerLink]="'/single'" class="genric-btn danger circle">Details</a> </div>
-
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="single_service" style="padding-bottom: 20px;">
-                    <div class="service_thumb service_icon_bg_1 d-flex align-items-center justify-content-center">
-                        <div class="service_icon">
-                            <img src="assets/img/service/service_icon_3.png" alt="">
-
-                        </div>
-                    </div>
-
-                    <div class="service_content text-center">
-                        <h3>Pet Spa</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut</p>
-
-                    </div>
-                    <div class="service_content text-center" style="padding-top: 20px;">
-                        <a [routerLink]="'/single'" class="genric-btn danger circle">Details</a> </div>
-
                 </div>
             </div>
         </div>
