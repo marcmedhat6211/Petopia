@@ -15,4 +15,11 @@ class ServiceController extends Controller
             Service::all()
         );
     }
+
+    public function show()
+    {
+        return new ServiceResource(
+            Service::find(request()->service)
+        );
+    }
 }

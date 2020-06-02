@@ -13,10 +13,10 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { HttpClientModule ,HttpClientXsrfModule} from '@angular/common/http';
 import { RouterModule ,Routes} from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+import { UserService } from './shared/user.service';
 import { AuthentictionService } from './authentiction.service';
-import { AuthGuardService } from './auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -41,15 +41,10 @@ import { AuthGuardService } from './auth-guard.service';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    RouterModule,
+    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }),
     
-      HttpClientXsrfModule.withOptions({
-      cookieName: 'XSRF-TOKEN',
-      headerName: 'X-XSRF-TOKEN',
-}),
-    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory })
   ],
-  providers: [AuthentictionService,AuthGuardService],
+  providers: [AuthentictionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

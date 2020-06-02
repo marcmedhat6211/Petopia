@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { AuthentictionService } from './authentiction.service';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +8,7 @@ import { AuthentictionService } from './authentiction.service';
 })
 export class AppComponent {
 
-  constructor(private router: Router,private route:ActivatedRoute ,public auth:AuthentictionService) {
+  constructor(private router: Router,private route:ActivatedRoute ) {
   }
   
   title = 'Petopia-Frontend';

@@ -18,7 +18,7 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'single',
+    path: ':service/:id',
     component: SingleComponent
   },
   {
@@ -32,6 +32,10 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'calender',
+    component: CalendarComponent
   }  
 ];
 
