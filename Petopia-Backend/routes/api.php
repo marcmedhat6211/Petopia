@@ -30,7 +30,7 @@ Route::post('/logout','LoginController@logout')->middleware('auth:sanctum');
 
 /* SERVICE ROUTES */
 Route::get('/services', 'API\ServiceController@index');
-Route::get('/services/service', 'API\ServiceController@show');
+Route::get('/services/{service}', 'API\ServiceController@show');
 
 /* RESERVATION ROUTE */
  Route::post('/reservations','API\ReservationController@store') ;

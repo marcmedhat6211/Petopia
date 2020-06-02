@@ -18,7 +18,7 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'single',
+    path: ':service/:id',
     component: SingleComponent
   },
   {
