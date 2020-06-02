@@ -37,13 +37,17 @@ Route::get('/services/{service}', 'API\ServiceController@show');
 
  /* AUTHENTICATED USER ROUTE */
  Route::get('/auth', function(){
-     if(!Auth::check())
-     {
-         $user = App\User::find(1);
-         Auth::login($user);
-     }
+    //  if(!Auth::check())
+    //  {
+    //      $user = App\User::find(2);
+    //      Auth::login($user);
+    //  }
+    //  return response()->json(Auth::user()->id);
 
-     return Auth::user();
+    // DB::table('personal_access_tokens')->where('tokenable_id',2)->pluck('tokenable_id');
+
+    // return User::find()->where('id',Auth::id());
+    return auth()->user();
  });
     
 

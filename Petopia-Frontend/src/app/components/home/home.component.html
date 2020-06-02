@@ -33,8 +33,7 @@
                 <div class="row">
                     <div class="col-lg-5 col-md-6">
                         <div class="slider_text">
-                            <h3>We Care <br> <span>Your Pets</span></h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur <br> adipiscing elit, sed do eiusmod.</p>
+                            <h3>We care for<br> <span>Your Pet</span></h3>
                         </div>
                     </div>
                 </div>
@@ -52,8 +51,13 @@
             <div class="row justify-content-center ">
                 <div class="col-lg-7 col-md-10">
                     <div class="section_title text-center mb-95">
-                        <h3>Services for every dog</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
+                        <h3>Services for every pet</h3>
+                        <br>
+                        <p>
+                            Petopia clinic is a clinic specialized in serving small animals.
+                            <br>
+                            We offer a wide range and high quality of services for your pet 
+                        </p>
                     </div>
 
                 </div>
@@ -61,9 +65,10 @@
             <div class="row justify-content-center">
                 <div *ngFor="let s of service.data; let i of index" class="col-lg-4 col-md-6">
                     <div class="single_service" style="padding-bottom: 20px;">
-                        <div class="service_thumb service_icon_bg_1 d-flex align-items-center justify-content-center">
+                        <div class="service_thumb service_icon_bg_1 d-flex align-items-center justify-content-center" style="width: 80%;">
                             <div class="service_icon">
-                                <img src="assets/img/service/service_icon_1.png" alt="">
+                                <img src="assets/img/service/{{s.service_name}}.png" style="width: 120px;height: 120px;" alt="">
+                                <img src="assets/img/service/{{s.service_name}}.svg" style="width: 120px;height: 120px;" alt="">
                             </div>
                         </div>
                         <div class="service_content text-center">
@@ -91,8 +96,14 @@
                 <div class="col-lg-6 offset-lg-1 col-md-6">
                     <div class="pet_info">
                         <div class="section_title">
-                            <h3><span>We care your pet </span> <br> As you care</h3>
-                            <p> description required <br> iusmod tempor incididunt ut labore et dolore magna aliqua. <br> Quis ipsum suspendisse ultrices gravida. Risus commodo <br> viverra maecenas accumsan.</p>
+                            <h3><span>We care for your pet</span></h3>
+                            <p>
+                                At petopia veterinary clinic, we are here to help you with all the needs of your pet, 
+                                from checkups to vaccinations and emergency care. We understand that being a pet owner 
+                                isn’t always easy, and we’re here to help you in anyways that we can. 
+                                Contact us to set up your first appointment. We look forward to providing 
+                                your pet with top quality veterinary care for years to come
+                            </p>
 
                         </div>
                     </div>
