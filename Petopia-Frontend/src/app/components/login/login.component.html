@@ -3,12 +3,12 @@
         <div class="card card-4">
             <div class="card-body">
                 <h2 class="title">Sign In</h2>
-                <form method="POST">
+                <form (submit)="login()">
                     <div class="row row-space">
                         <div class="col-12">
                             <div class="input-group">
                                 <label class="label">Email</label>
-                                <input class="input--style-4" type="text" name="first_name">
+                                <input class="input--style-4" type="email" name="email" placeholder="Email" [(ngModel)]="crdentials.email">
                             </div>
                         </div>
 
@@ -17,7 +17,7 @@
                         <div class="col-12">
                             <div class="input-group">
                                 <label class="label">password</label>
-                                <input class="input--style-4" type="text" name="last_name">
+                                <input class="input--style-4" type="password" name="password" placeholder="Password" [(ngModel)]="crdentials.password">
                             </div>
                         </div>
                     </div>
