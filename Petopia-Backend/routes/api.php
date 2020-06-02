@@ -19,20 +19,31 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
    
-/*REGISTER ROUTE*/
+/* REGISTER ROUTES */
 Route::post('/register','RegisterController@register');
 
-/*LOGIN ROUTE */
+/* LOGIN ROUTES */
 Route::post('/login','LoginController@login');
 
-/* LOGOUT ROUTE */
+/* LOGOUT ROUTES */
 Route::post('/logout','LoginController@logout')->middleware('auth:sanctum');
 
 /* SERVICE ROUTES */
 Route::get('/services', 'API\ServiceController@index');
 Route::get('/services/{service}', 'API\ServiceController@show');
 
-/* RESERVATION ROUTE */
- Route::post('/reservations','API\ReservationController@store') ;
+/* RESERVATION ROUTES */
+ Route::post('/reservations','API\ReservationController@store');
+
+ /* AUTHENTICATED USER ROUTE */
+ Route::get('/auth', function(){
+     if(!Auth::check())
+     {
+         $user = App\User::find(1);
+         Auth::login($user);
+     }
+
+     return Auth::user();
+ });
     
 

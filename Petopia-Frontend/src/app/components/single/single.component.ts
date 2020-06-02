@@ -13,17 +13,16 @@ export class SingleComponent implements OnInit {
   constructor(private http: HttpClient, private route: ActivatedRoute,private router: Router
      ) {}
 
-  ngOnInit(): void {
-     
+  ngOnInit(): void 
+  {   
     var id = this.route.params._value.id;
     var x  = +id ;
     console.log(x);
+
     this.http.get<Service>('http://localhost:8000/api/services/'+x).subscribe(data => {
       console.log(data);
-      this.service = data;
-    
-    }); 
-   
+      this.service = data;    
+    });  
   }
    
 }
