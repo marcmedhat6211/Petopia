@@ -13,7 +13,12 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { RouterModule ,Routes} from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { UserService } from './shared/user.service';
+import { AuthentictionService } from './authentiction.service';
+import { RequestResetComponent } from './components/password/request-reset/request-reset.component';
+import { ResponeResetComponent } from './components/password/respone-reset/respone-reset.component';
 import { ReservationComponent } from './components/reservation/reservation.component';
 
 @NgModule({
@@ -33,6 +38,9 @@ import { ReservationComponent } from './components/reservation/reservation.compo
     
     FooterComponent,
     
+    RequestResetComponent,
+    
+    ResponeResetComponent,
     ReservationComponent,
     
   ],
@@ -41,9 +49,10 @@ import { ReservationComponent } from './components/reservation/reservation.compo
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory })
+    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }),
+    
   ],
-  providers: [],
+  providers: [AuthentictionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

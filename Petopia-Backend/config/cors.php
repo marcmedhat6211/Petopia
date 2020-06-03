@@ -16,6 +16,13 @@ return [
     */
 
     'paths' => ['api/*'],
+    // 'paths' => [
+    //     'api/*',
+    //     '/login',
+    //     '/logout',
+    //     '/register',
+    //     '/sanctum/csrf-cookie'
+    // ],
 
     'allowed_methods' => ['*'],
 
@@ -25,7 +32,7 @@ return [
 
     'allowed_headers' => ['*'],
 
-    'exposed_headers' => [],
+    'exposed_headers' => false,
 
     'max_age' => 0,
 
