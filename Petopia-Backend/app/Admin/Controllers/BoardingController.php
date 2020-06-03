@@ -74,7 +74,7 @@ class BoardingController extends AdminController
         $form->select('reservation_id',__('Reservation'))->options(Reservation::all()->pluck('date','id'))->rules('required');
         $form->select('cage_id',__('Available Cages'))->options(Cage::get()->where("availability","Available")->pluck('id','id'))->rules('required');
         $form->datetime('end_date', __('End date'))->default(date('Y-m-d H:i:s'))->rules('required');
-        //takes old dates
+        
         return $form;      
     }
 }

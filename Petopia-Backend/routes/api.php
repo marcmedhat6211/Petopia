@@ -35,4 +35,6 @@ Route::get('/services/service', 'API\ServiceController@show');
 /* RESERVATION ROUTE */
  Route::post('/reservations','API\ReservationController@store') ;
     
+/*pet register */
+// Route::post('/pet/add','API\PetController@store');
 
