@@ -21,24 +21,11 @@ Route::group([
     //'prefix' => 'auth'
 
 ], function ($router) {
-
     Route::post('login', 'AuthController@login');
     Route::post('signup', 'AuthController@signup');
     Route::post('logout', 'AuthController@logout');
     Route::post('refresh', 'AuthController@refresh');
     Route::post('me', 'AuthController@me');
-    Route::get('/auth', function(){
-        //  if(!Auth::check())
-        //  {
-        //      $user = App\User::find(2);
-        //      Auth::login($user);
-        //  }
-        //  return response()->json(Auth::user()->id);
-
-        // return User::find()->where('id',Auth::id());
-        return Auth::user();
-    });
-
 });
 
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
@@ -61,9 +48,4 @@ Route::get('/services/{service}', 'API\ServiceController@show');
 
 /* RESERVATION ROUTES */
  Route::post('/reservations','API\ReservationController@store');
-
- /* AUTHENTICATED USER ROUTE */
- Route::group(['middleware' => 'api'], function(){
-
-});    
 

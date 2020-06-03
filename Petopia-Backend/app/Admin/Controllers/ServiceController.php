@@ -68,4 +68,13 @@ class ServiceController extends AdminController
 
         return $form;
     }
+
+    public function test() {
+
+        return response()->json([
+            'success'=>true, 
+            'message'=>'hello from laravel', 
+            'data'=>'mydata'
+        ]);
+    }
 }
