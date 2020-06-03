@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { User } from 'src/app/shared/user.model';
 import { NgForm } from '@angular/forms';
-import { UserService } from 'src/app/shared/user.service';
-import { AuthentictionService, TokenPayload } from 'src/app/authentiction.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-register',
@@ -11,52 +9,33 @@ import { AuthentictionService, TokenPayload } from 'src/app/authentiction.servic
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent  implements OnInit{
-  //user : User
-  //private userService: UserService
-  constructor(private auth :AuthentictionService,private router :Router) { }
+  
+  constructor(private http:HttpClient) { }
 
   ngOnInit(): void {
-   // this.resetForm()
   }
   
-  // resetForm(form? :NgForm){
-
-  //   if(form != null)
-  //   form.reset()
-  //   this.user={
-  //     name:'',
-  //     email:'',
-  //     password:'',
-  //     phone_number:'',
-  //     recommendation:'',
-  //     address:''
-  //   }
-  // }
-  // onSubmit(form : NgForm){
-  //   this.userService.register(form.value)
-  //   .subscribe((data:any)=>{
-  //     if(data.Succeeded==true){
-  //       this.resetForm(form)
-  //     }
-  //   })
-  // }
-  credenioals:TokenPayload={
-    id:0,
-    name:'',
-    email:'',
-    password:'',
-    phone_number:'',
-    recommendation:'',
-    address:''
+  
+  form={
+    name:null,
+    email:null,
+    password:null,
+    password_confirmation:null,
+    phone_number:null,
+    recommendation:null,
+    address:null
   }
-  register(){
-    this.auth.register(this.credenioals).
-    subscribe(()=>{
-      this.router.navigateByUrl('/home')
-    },
-    err=>{
-      console.log(err);
-      
-    })
+  public error=[]
+  onSubmit(){
+    return this.http.post('http://localhost:8000/api/signup',this.form).subscribe(
+     
+      (data)=>console.log(data),
+      error=>this.handleError(error)
+    )
+  }
+
+
+  handleError(error){
+    this.error=error.error.errors
   }
 }

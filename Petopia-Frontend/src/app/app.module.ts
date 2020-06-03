@@ -17,6 +17,8 @@ import { RouterModule ,Routes} from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { UserService } from './shared/user.service';
 import { AuthentictionService } from './authentiction.service';
+import { RequestResetComponent } from './components/password/request-reset/request-reset.component';
+import { ResponeResetComponent } from './components/password/respone-reset/respone-reset.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,10 @@ import { AuthentictionService } from './authentiction.service';
     NavbarComponent,
     
     FooterComponent,
+    
+    RequestResetComponent,
+    
+    ResponeResetComponent,
     
   ],
   imports: [

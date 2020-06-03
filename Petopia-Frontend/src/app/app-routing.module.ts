@@ -6,6 +6,8 @@ import { CalendarComponent } from './calendar/calendar.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { AppComponent } from './app.component';
+import { RequestResetComponent } from './components/password/request-reset/request-reset.component';
+import { ResponeResetComponent } from './components/password/respone-reset/respone-reset.component';
 
 
 const routes: Routes = [
@@ -32,6 +34,13 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },{
+    path:'request-password-reset',
+    component:RequestResetComponent
+  },
+  {
+    path:'response-pssword-reset',
+    component:ResponeResetComponent
   },
   {
     path: 'calender',
