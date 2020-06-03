@@ -3,12 +3,15 @@
         <div class="card card-4">
             <div class="card-body">
                 <h2 class="title">Sign In</h2>
-                <form method="POST">
+                <form #loginForm=ngForm (ngSubmit)="onSubmit()">
+                    <div class="alert alert-danger" [hidden]="!error">
+                        {{error}}
+                    </div>
                     <div class="row row-space">
                         <div class="col-12">
                             <div class="input-group">
                                 <label class="label">Email</label>
-                                <input class="input--style-4" type="text" name="first_name">
+                                <input class="input--style-4" type="email" name="email" placeholder="Email" [(ngModel)]="form.email" required>
                             </div>
                         </div>
 
@@ -17,14 +20,14 @@
                         <div class="col-12">
                             <div class="input-group">
                                 <label class="label">password</label>
-                                <input class="input--style-4" type="text" name="last_name">
+                                <input class="input--style-4" type="password" name="password" placeholder="Password" [(ngModel)]="form.password" required>
                             </div>
                         </div>
                     </div>
 
 
                     <div class="p-t-15 text-center">
-                        <button class="btn btn--radius-2 btn--blue" type="submit" [routerLink]="'/home'">Login</button>
+                        <button class="btn btn--radius-2 btn--blue" type="submit" [disabled]="!loginForm.valid">Login</button>
                     </div>
 
                 </form>

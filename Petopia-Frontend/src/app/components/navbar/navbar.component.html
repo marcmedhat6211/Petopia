@@ -1,20 +1,17 @@
-      
-    
-     
-      <div class="header-area ">
+<div class="header-area ">
 
-       <!-- start of navbar -->
-        <div id="sticky-header" class="main-header-area">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-xl-1 col-lg-3">
-                        <div class="logo">
-                            <a href="index.html">
-                                <img src="assets/img/logo.png" alt="" style="width:70px; padding-right: 0;">
-                            </a>
-                        </div>
+    <!-- start of navbar -->
+    <div id="sticky-header" class="main-header-area">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-xl-1 col-lg-3">
+                    <div class="circular--landscape">
+                        <a href="index.html">
+                            <img src="assets/img/logo.jpeg" alt="">
+                        </a>
                     </div>
-                    <div class="col-xl-2 col-lg-3" style="padding-left: 0px;">
+                </div>
+                <div class="col-xl-2 col-lg-3" style="padding-left: 0px;">
 
                         <p>petopia</p>
                     </div>
@@ -23,8 +20,9 @@
                             <nav>
                                 <ul id="navigation">
                                     <li><a [routerLink]="'/home'">home</a></li>
-                                    <li><a href="about.html">sign in</a></li>
-
+                                    <li ><a  [routerLink]="'/login'" *ngIf="!loggedIn">Login</a></li>
+                                    <li ><a href="#*" (click)="logout($event)" *ngIf="loggedIn">Logout</a></li>
+                                    <li ><a href="#*" [routerLink]="'/pet'" *ngIf="loggedIn">Pet Info</a></li> 
                                 </ul>
                             </nav>
                         </div>
@@ -32,8 +30,12 @@
                     <div class="col-12">
                         <div class="mobile_menu d-block d-lg-none"></div>
                     </div>
+              
+                <div class="col-12">
+                    <div class="mobile_menu d-block d-lg-none"></div>
                 </div>
             </div>
         </div>
+    </div>
 
-        </div>
+</div>

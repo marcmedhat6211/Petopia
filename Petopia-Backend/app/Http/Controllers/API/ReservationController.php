@@ -17,13 +17,12 @@ class ReservationController extends Controller
     public function store(ReservationRequest $request)
     {
         $isExists = Reservation::where('user_id',$request->client_id)
-        ->where('pet_id',$request->pet_id)
-        ->where('service_id',$request->service_id)
-        ->where('date',$request->date)->exists();
-        
-       
-        if ($isExists) {
-
+            ->where('pet_id',$request->pet_id)
+            ->where('service_id',$request->service_id)
+            ->where('date',$request->date)->exists();
+               
+        if ($isExists) 
+        {
             return response()->json(['status' => 'error','message' => 'you have reserved it before']);
         }  
 
@@ -35,9 +34,5 @@ class ReservationController extends Controller
         $reservation->save();
 
         return response()->json(['reservation_id' => $reservation->id ,'status' => 'success' ]);
-        
-        
-        
-
     }
 }

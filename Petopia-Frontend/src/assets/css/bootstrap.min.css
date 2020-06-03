@@ -6903,7 +6903,7 @@ button.bg-dark:hover {
 .align-items-center {
     -webkit-box-align: center!important;
     -ms-flex-align: center!important;
-    align-items: center!important
+    align-items: center!important;
 }
 
 .align-items-baseline {
@@ -9205,8 +9205,8 @@ a.text-dark:hover {
 
 @media print {
     *,
-    ::after,
-    ::before {
+     ::after,
+     ::before {
         text-shadow: none!important;
         box-shadow: none!important
     }

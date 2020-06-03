@@ -1,0 +1,47 @@
+<div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins ">
+    <div class="wrapper wrapper--w680">
+        <div class="card card-4">
+            <div class="card-body">
+                <h2 class="title">Reservation Form</h2>
+                <form method="POST">
+                    <div class="row row-space">
+                            <div class="col-6">
+                                <div class="input-group">
+                                    <label class="label">Service</label>
+                                    <input class="input--style-4" type="text" value="{{service.data.service_name}}" name="service_name" readonly>
+                                </div>
+                            </div>
+                         <div class="col-6">
+                            <div class="input-group">
+                                <label class="label">Pet Owner Name</label>
+                                <input class="input--style-4" value="{{user.name}}" type="text" name="pet_owner_name" readonly>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="input-group">
+                                <label class="label">Date</label>
+                                    <input class="input--style-4 js-datepicker" style="height:50px;" type="date" name="date">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="input-group">
+                                <label class="label">Pet Name</label>
+                                <select name="pet_name" class="input--style-4" style="height:50px;">
+                                    <option selected>Custom Select Menu</option>
+                                    <option value="volvo">Volvo</option>
+                                    <option value="fiat">Fiat</option>
+                                    <option value="audi">Audi</option>
+                                  </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-space">
+                    </div>
+                    <div class="p-t-15 text-center mt-4">
+                        <button class="btn btn--radius-2 btn--blue" type="submit" [routerLink]="'/home'">Book</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

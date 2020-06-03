@@ -13,8 +13,18 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { RouterModule ,Routes} from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { UserService } from './shared/user.service';
+import { RequestResetComponent } from './components/password/request-reset/request-reset.component';
+import { ResponeResetComponent } from './components/password/respone-reset/respone-reset.component';
+import { ReservationComponent } from './components/reservation/reservation.component';
+import { AthenticationService } from './services/athentication.service';
+import { TokenService } from './services/token.service';
 import { PetComponent } from './components/pet/pet.component';
+import { AuthService } from './services/auth.service';
+import { AfterLoginService } from './services/after-login.service';
+import { BeforeLoginService } from './services/before-login.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +42,13 @@ import { PetComponent } from './components/pet/pet.component';
     NavbarComponent,
     
     FooterComponent,
+    
+    RequestResetComponent,
+    
+    ResponeResetComponent,
+    ReservationComponent,
     PetComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -42,7 +58,7 @@ import { PetComponent } from './components/pet/pet.component';
     CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }),
     
   ],
-  providers: [],
+  providers: [AthenticationService,TokenService,AuthService,AfterLoginService,BeforeLoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -23,13 +23,6 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  onClick(serviceId)
-  {
-    console.log('ana gwa el fn');
-    this.http.get<Service>('http://localhost:8000/api/services/serviceId').subscribe(data => {
-      console.log(data);
-      this.service = data;
-    });
-  }
+  
 
 }

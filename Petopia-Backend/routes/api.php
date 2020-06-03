@@ -14,26 +14,57 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+
+Route::group([
+
+    'middleware' => 'api',
+    //'prefix' => 'auth'
+
+], function ($router) {
+
+    Route::post('login', 'AuthController@login');
+    Route::post('signup', 'AuthController@signup');
+    Route::post('logout', 'AuthController@logout');
+    Route::post('refresh', 'AuthController@refresh');
+    Route::post('me', 'AuthController@me');
+
 });
 
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
    
-/*REGISTER ROUTE*/
-Route::post('/register','RegisterController@register');
+// /*REGISTER ROUTE*/
+// Route::post('/register','RegisterController@register');
 
-/*LOGIN ROUTE */
-Route::post('/login','LoginController@login');
+// /*LOGIN ROUTE */
+// Route::post('/login','LoginController@login');
 
-/* LOGOUT ROUTE */
-Route::post('/logout','LoginController@logout')->middleware('auth:sanctum');
+// /* LOGOUT ROUTE */
+// Route::post('/logout','LoginController@logout')->middleware('auth:sanctum');
 
 /* SERVICE ROUTES */
 Route::get('/services', 'API\ServiceController@index');
-Route::get('/services/service', 'API\ServiceController@show');
+Route::get('/services/{service}', 'API\ServiceController@show');
 
-/* RESERVATION ROUTE */
- Route::post('/reservations','API\ReservationController@store') ;
+/* RESERVATION ROUTES */
+ Route::post('/reservations','API\ReservationController@store');
+
+ /* AUTHENTICATED USER ROUTE */
+ Route::get('/auth', function(){
+    //  if(!Auth::check())
+    //  {
+    //      $user = App\User::find(2);
+    //      Auth::login($user);
+    //  }
+    //  return response()->json(Auth::user()->id);
+
+    // DB::table('personal_access_tokens')->where('tokenable_id',2)->pluck('tokenable_id');
+
+    // return User::find()->where('id',Auth::id());
+    return auth()->user();
+ });
     
 /*pet register */
 // Route::post('/pet/add','API\PetController@store');
