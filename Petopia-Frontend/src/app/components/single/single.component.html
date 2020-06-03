@@ -28,12 +28,13 @@
                 <div class="col-md-9 mt-sm-20">
                     <p> {{service.data.description}}</p>
                 </div>
-
-
             </div>
-
+            <div class="row">
+                <div class="service_content text-center" style="padding-top: 20px;">
+                    <a [routerLink]="['/reservation', service.data.service_name ,service.data.id]" class="genric-btn danger circle">Book</a>
+                </div>
+            </div>
         </div>
-
     </div>
 </div>
 

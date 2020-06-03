@@ -105,7 +105,7 @@ class DatabaseSeeder extends Seeder
             'description' => 'Whether you are out of town for a day, a week or more, 
                               board your pet in comfort and safety at our clinic 
                               boarding facility. For cats, we have spacious cat cage 
-                              and lie on soft blanket. For dogs, enjoy daily walks 
+                              and lie on soft blanket. For dogs, we offer daily walks 
                               and bathroom breaks'
          ]);
 
@@ -121,19 +121,19 @@ class DatabaseSeeder extends Seeder
             'name' => 'Vaccination',
             'description' => 'Vaccinations protect your pet against common infectious
                               diseases that can make them very sick. At Petopia clinic 
-                              we follow the American Animal Hospital Association'
+                              we follow the American Animal Hospital Association guidlines'
          ]);
 
          DB::table('services')->insert([
             'name' => 'Anti Flees and Ticks',
-            'description' => 'Provide regular routine for preventive and treatment 
-                              for external parasite like fleas and ticks with proven 
+            'description' => 'Provide regular routine for prevention and treatment 
+                              of external parasites like fleas and ticks with proven 
                               efficacy drugs'
          ]);
 
          DB::table('services')->insert([
             'name' => 'Deworming',
-            'description' => 'Testing for internal parasite and regular deworming 
+            'description' => 'Testing for internal parasites and regular deworming 
                               medication can prevent harmful illness or diseases 
                               in pets'
          ]);

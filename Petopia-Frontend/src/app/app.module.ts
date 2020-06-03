@@ -19,6 +19,7 @@ import { UserService } from './shared/user.service';
 import { AuthentictionService } from './authentiction.service';
 import { RequestResetComponent } from './components/password/request-reset/request-reset.component';
 import { ResponeResetComponent } from './components/password/respone-reset/respone-reset.component';
+import { ReservationComponent } from './components/reservation/reservation.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { ResponeResetComponent } from './components/password/respone-reset/respo
     RequestResetComponent,
     
     ResponeResetComponent,
+    ReservationComponent,
     
   ],
   imports: [
