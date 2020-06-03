@@ -117,6 +117,7 @@ class PetController extends AdminController
             'current_diet'=> request()->color,
             'current_medication'=> request()->color,
         ]);
+        // Pet:: request->all
         return response()->json([
             'success'=>true, 
             'message'=>'hello from laravel', 
