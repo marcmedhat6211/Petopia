@@ -18,8 +18,11 @@ export class ReservationComponent implements OnInit {
 
   ngOnInit(): void 
   {
-    var idString = this.route.snapshot.url[1].path;
-    var idInteger  = +idString ;
+    // console.log(this.href.substring(this.href.lastIndexOf('/') + 1));
+    var id = window.location.pathname.split("/").pop();
+    
+    // var idString = this.route.snapshot.url[2].path;
+    // var idInteger  = +idString ;
 
     
     this.http.get<User>('http://localhost:8000/api/auth').subscribe(data => {
@@ -27,7 +30,7 @@ export class ReservationComponent implements OnInit {
       this.user = data;
     });
     
-    this.http.get<Service>('http://localhost:8000/api/services/'+idInteger).subscribe(data => {
+    this.http.get<Service>('http://localhost:8000/api/services/'+id).subscribe(data => {
       console.log(data);
       this.service = data;    
     });  
