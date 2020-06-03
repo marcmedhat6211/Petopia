@@ -27,6 +27,17 @@ Route::group([
     Route::post('logout', 'AuthController@logout');
     Route::post('refresh', 'AuthController@refresh');
     Route::post('me', 'AuthController@me');
+    Route::get('/auth', function(){
+        //  if(!Auth::check())
+        //  {
+        //      $user = App\User::find(2);
+        //      Auth::login($user);
+        //  }
+        //  return response()->json(Auth::user()->id);
+
+        // return User::find()->where('id',Auth::id());
+        return Auth::user();
+    });
 
 });
 
@@ -52,18 +63,7 @@ Route::get('/services/{service}', 'API\ServiceController@show');
  Route::post('/reservations','API\ReservationController@store');
 
  /* AUTHENTICATED USER ROUTE */
- Route::get('/auth', function(){
-    //  if(!Auth::check())
-    //  {
-    //      $user = App\User::find(2);
-    //      Auth::login($user);
-    //  }
-    //  return response()->json(Auth::user()->id);
+ Route::group(['middleware' => 'api'], function(){
 
-    // DB::table('personal_access_tokens')->where('tokenable_id',2)->pluck('tokenable_id');
-
-    // return User::find()->where('id',Auth::id());
-    return auth()->user();
- });
-    
+});    
 

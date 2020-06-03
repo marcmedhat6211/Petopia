@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AthenticationService } from 'src/app/services/athentication.service';
 import { TokenService } from 'src/app/services/token.service';
 import { AuthService } from 'src/app/services/auth.service';
+import { Current_User } from '../../Current_User';
 
 
 @Component({
@@ -12,6 +13,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class LoginComponent  implements OnInit{
   
+  current_user: Current_User;
 
   public form={
     email:null,
@@ -22,12 +24,12 @@ export class LoginComponent  implements OnInit{
   
   onSubmit(){
     this.athentication.signin(this.form).subscribe(
-     
       (data)=>this.handleResponse(data),
       error=>this.handleError(error)
-      
+    );
 
-    )
+    localStorage.setItem('email',btoa(this.form.email));
+    localStorage.setItem('password',btoa(this.form.password));
   }
 
   handleError(error){
@@ -37,7 +39,10 @@ export class LoginComponent  implements OnInit{
   handleResponse(data){
     this.token.handle(data.access_token)
     this.auth.changeAuthStatus(true)
-    this.router.navigateByUrl('/pet')
+    this.router.navigateByUrl('/home')
+    this.current_user = data.user
+    console.log(data);
+    console.log(this.current_user);
   }
 
   ngOnInit(): void {
