@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Service } from '../../Service';
 import {Router,ActivatedRoute} from '@angular/router';
+import { Observable, Subject } from 'rxjs';
  
 @Component({
   selector: 'app-single',
@@ -15,11 +16,10 @@ export class SingleComponent implements OnInit {
 
   ngOnInit(): void 
   {   
-    var id = this.route.params._value.id;
-    var x  = +id ;
-    console.log(x);
-
-    this.http.get<Service>('http://localhost:8000/api/services/'+x).subscribe(data => {
+    var idString = this.route.snapshot.url[1].path;
+    var idInteger  = +idString ;
+ 
+    this.http.get<Service>('http://localhost:8000/api/services/'+idInteger).subscribe(data => {
       console.log(data);
       this.service = data;    
     });  
