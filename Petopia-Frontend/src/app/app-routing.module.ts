@@ -9,6 +9,9 @@ import { ReservationComponent } from './components/reservation/reservation.compo
 import { AppComponent } from './app.component';
 import { RequestResetComponent } from './components/password/request-reset/request-reset.component';
 import { ResponeResetComponent } from './components/password/respone-reset/respone-reset.component';
+import { PetComponent } from './components/pet/pet.component';
+import { BeforeLoginService } from './services/before-login.service';
+import { AfterLoginService } from './services/after-login.service';
 
 
 const routes: Routes = [
@@ -29,19 +32,25 @@ const routes: Routes = [
     component: CalendarComponent
   },
   {
-    path: 'register',
-    component: RegisterComponent
+    path: 'signup',
+    component: RegisterComponent,
+    canActivate:[BeforeLoginService]
   },
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
+    canActivate :[BeforeLoginService]
   },{
     path:'request-password-reset',
-    component:RequestResetComponent
+    component:RequestResetComponent,
+    canActivate:[AfterLoginService]
+
   },
   {
     path:'response-pssword-reset',
-    component:ResponeResetComponent
+    component:ResponeResetComponent,
+    canActivate:[AfterLoginService]
+
   },
   {
     path: 'calender',
@@ -50,6 +59,11 @@ const routes: Routes = [
   {
     path: 'reservation/:service/:id',
     component: ReservationComponent
+  },
+  {
+    path:'pet',
+    component:PetComponent,
+    canActivate:[AfterLoginService]
   }
 ];
 

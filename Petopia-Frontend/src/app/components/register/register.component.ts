@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
+import { AthenticationService } from 'src/app/services/athentication.service';
+import { TokenService } from 'src/app/services/token.service';
 
 @Component({
   selector: 'app-register',
@@ -10,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class RegisterComponent  implements OnInit{
   
-  constructor(private http:HttpClient) { }
+  constructor(private athentication:AthenticationService,private token :TokenService,private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -27,9 +28,9 @@ export class RegisterComponent  implements OnInit{
   }
   public error=[]
   onSubmit(){
-    return this.http.post('http://localhost:8000/api/signup',this.form).subscribe(
+   this.athentication.register(this.form).subscribe(
      
-      (data)=>console.log(data),
+      (data)=>this.handleResponse(data),
       error=>this.handleError(error)
     )
   }
@@ -37,5 +38,10 @@ export class RegisterComponent  implements OnInit{
 
   handleError(error){
     this.error=error.error.errors
+  }
+
+  handleResponse(data){
+    this.token.handle(data.access_token)
+    this.router.navigateByUrl('/pet')
   }
 }

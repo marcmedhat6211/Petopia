@@ -20,9 +20,9 @@
                             <nav>
                                 <ul id="navigation">
                                     <li><a [routerLink]="'/home'">home</a></li>
-                                    <li ><a  [routerLink]="'/login'">Login</a></li>
-                                    <li ><a  [routerLink]="'/register'">Register</a></li>
-                                    <li ><a [routerLink]="'/logout'">Logout</a></li> 
+                                    <li ><a  [routerLink]="'/login'" *ngIf="!loggedIn">Login</a></li>
+                                    <li ><a href="#*" (click)="logout($event)" *ngIf="loggedIn">Logout</a></li>
+                                    <li ><a href="#*" [routerLink]="'/pet'" *ngIf="loggedIn">Pet Info</a></li> 
                                 </ul>
                             </nav>
                         </div>
