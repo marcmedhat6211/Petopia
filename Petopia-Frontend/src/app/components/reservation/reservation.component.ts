@@ -50,8 +50,11 @@ export class ReservationComponent implements OnInit {
     this.http.get<Service>('http://localhost:8000/api/services/'+id).subscribe(data => {
       console.log(data);
       this.service = data;
+
+      
     });  
   }
+
 
   public form={
     service_name: null,
