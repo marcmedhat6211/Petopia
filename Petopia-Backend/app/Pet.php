@@ -6,6 +6,20 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pet extends Model
 {
+    protected $fillable = [
+        'name',
+        'user_id',
+        'breed',
+        'color',
+        'age',
+        'weight',
+        'neutered',
+        'previous_problems',
+        'drug_allergies',
+        'current_diet',
+        'current_medication'
+    ];
+
     public function reservations()
     {
         return $this->hasMany('App\Reservation');

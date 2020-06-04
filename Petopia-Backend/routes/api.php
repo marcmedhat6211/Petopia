@@ -67,5 +67,5 @@ Route::get('/services/{service}', 'API\ServiceController@show');
  });
     
 /*pet register */
-// Route::post('/pet/add','API\PetController@store');
+Route::post('/pet/add','API\PetsController@add');
 
