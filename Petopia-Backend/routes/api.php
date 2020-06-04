@@ -48,4 +48,3 @@ Route::get('/services/{service}', 'API\ServiceController@show');
 
 /* RESERVATION ROUTES */
  Route::post('/reservations','API\ReservationController@store');
-

@@ -64,7 +64,8 @@ class AuthController extends Controller
     {
         $current_user_pets = Pet::where('user_id', auth()->user()->id)->get()->pluck('name');
 
-        return response()->json([
+        return response()->json(
+            [
             'current_user' => auth()->user(),
             'current_user_pets' => $current_user_pets
             ]);

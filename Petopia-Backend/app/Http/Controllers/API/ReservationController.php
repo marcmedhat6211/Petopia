@@ -23,7 +23,7 @@ class ReservationController extends Controller
                
         if ($isExists) 
         {
-            return response()->json(['status' => 'error','message' => 'you have reserved it before']);
+            return response()->json(['status' => 'error','message' => 'You already have a reservation']);
         }  
 
         $reservation = new Reservation();

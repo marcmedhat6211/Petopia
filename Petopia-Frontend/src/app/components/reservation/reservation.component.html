@@ -8,13 +8,15 @@
                             <div class="col-6">
                                 <div class="input-group">
                                     <label class="label">Service</label>
-                                    <input class="input--style-4" type="text" value="{{service.data.service_name}}" name="service_name" readonly>
+                                    <input class="input--style-4" type="text" value="{{service.data.service_name}}" name="service_name" disabled="disabled" readonly>
+                                    <input class="input--style-4" type="number" value="{{service.data.id}}" name="service_id" hidden>
                                 </div>
                             </div>
                          <div class="col-6">
                             <div class="input-group">
                                 <label class="label">Pet Owner Name</label>
                                 <input class="input--style-4" value="{{user.current_user.name}}" type="text" name="pet_owner_name" readonly>
+                                <input class="input--style-4" value="{{user.current_user.id}}" type="text" name="pet_owner_id" hidden>
                             </div>
                         </div>
                         <div class="col-6">
@@ -28,7 +30,7 @@
                                 <label class="label">Pet Name</label>
                                 <select name="pet_name" class="input--style-4" style="height:50px;">
                                     <option selected>Select your pet's name</option>
-                                        <option *ngFor="let pet of user.current_user_pets; let i of index">{{pet}}</option>
+                                        <option *ngFor="let pet of user.current_user_pets; let i of index" disabled="disabled" value="">{{pet}}</option>
                                 </select>
                             </div>
                         </div>
