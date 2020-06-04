@@ -25,6 +25,7 @@ import { PetComponent } from './components/pet/pet.component';
 import { AuthService } from './services/auth.service';
 import { AfterLoginService } from './services/after-login.service';
 import { BeforeLoginService } from './services/before-login.service';
+import { PetsService } from './services/pets.service';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,7 @@ import { BeforeLoginService } from './services/before-login.service';
     CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }),
     
   ],
-  providers: [AthenticationService,TokenService,AuthService,AfterLoginService,BeforeLoginService],
+  providers: [AthenticationService,TokenService,AuthService,AfterLoginService,BeforeLoginService, PetsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

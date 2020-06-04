@@ -63,7 +63,7 @@ const routes: Routes = [
   {
     path:'pet',
     component:PetComponent,
-    canActivate:[AfterLoginService]
+    // canActivate:[AfterLoginService]
   }
 ];
 
