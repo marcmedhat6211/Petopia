@@ -50,7 +50,7 @@
                             "src/assets"
                         ],
                         "styles": [
-                          
+                            "node_modules/ng-snotify/styles/material.scss",
                             "node_modules/angular-calendar/css/angular-calendar.css",
                             "src/styles.scss"
                         ],
