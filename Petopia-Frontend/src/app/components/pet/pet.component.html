@@ -1,1 +1,110 @@
-<p>Pet Componet</p>
+<div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins ">
+    <div class="wrapper wrapper--w680">
+        <div class="card card-4">
+            <div class="card-body">
+                <h2 class="title">Registration Form</h2>
+                <form method="POST" #petRegistrationForm="ngForm" (ngSubmit)="submit(petRegistrationForm)">
+                    <div class="row row-space">
+                        <div class="col-6">
+                            <div class="input-group">
+                                <label class="label">Pet Name</label>
+                                <input class="input--style-4" type="text" name="petName" #petName="ngModel" ngModel required minlength="3">
+                            </div>
+                        </div>
+                        <div class="row row-space">
+                            <div class="col-6">
+                                <div class="input-group">
+                                    <label class="label">Species
+                                    </label>
+                                    <label for="true">Yes</label><br>
+                                    <input type="radio" id="true" name="species" value="cat">
+                                    <label for="false">No</label><br>
+                                    <input type="radio" id="false" name="species" value="dog">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="input-group">
+                                <label class="label">Breed</label>
+                                <input class="input--style-4" type="text" name="breed" #breed="ngModel" ngModel required>
+                            </div>
+                        </div>     
+                    </div>
+                    <div class="row row-space">
+                        <div class="col-6">
+                            <div class="input-group">
+                                <label class="label">Birtday</label>
+                                <input class="input--style-4" type="date" name="birthday" #petName="ngModel" ngModel required minlength="3">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-space">
+                        <div class="col-6">
+                            <div class="input-group">
+                                <label class="label">Color</label>
+                                <input class="input--style-4" type="text" name="color" #petName="ngModel" ngModel required minlength="3">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-space">
+                        <div class="col-6">
+                            <div class="input-group">
+                                <label class="label">Neutered</label><br>
+                                <div>
+                                <label for="true">Yes</label><br>
+                                <input type="radio" id="true" name="neutered" value="yes">
+                                <label for="false">No</label><br>
+                                <input type="radio" id="false" name="neutered" value="no">
+                                </div>
+                                <!-- <input class="input--style-4" type="text" name="neutered" #petName="ngModel" ngModel required minlength="3"> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-space">
+                        <div class="col-6">
+                            <div class="input-group">
+                                <label class="label">Previous problems
+                                </label>
+                                <input class="input--style-4" type="text" name="problems" #petName="ngModel" ngModel required minlength="3">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row row-space">
+                        <div class="col-6">
+                            <div class="input-group">
+                                <label class="label">Drug Allergies
+                                </label>
+                                <input class="input--style-4" type="text" name="allergies" #petName="ngModel" ngModel>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-space">
+                        <div class="col-6">
+                            <div class="input-group">
+                                <label class="label">Current Diet
+                                </label>
+                                <input class="input--style-4" type="text" name="diet" #petName="ngModel" ngModel>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-space">
+                        <div class="col-6">
+                            <div class="input-group">
+                                <label class="label">Current Medication 
+                                </label>
+                                <input class="input--style-4" type="text" name="meds" #petName="ngModel" ngModel>
+                            </div>
+                        </div>
+                    </div>
+               
+
+                    <div class="p-t-15 text-center">
+                        <button class="btn btn-primary btn-lg"  type="submit" [disabled]="!petRegistrationForm.valid">Sign Up</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
