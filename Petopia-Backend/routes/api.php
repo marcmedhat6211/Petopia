@@ -21,7 +21,6 @@ Route::group([
     //'prefix' => 'auth'
 
 ], function ($router) {
-
     Route::post('login', 'AuthController@login');
     Route::post('signup', 'AuthController@signup');
     Route::post('logout', 'AuthController@logout');
@@ -53,20 +52,4 @@ Route::get('/services/{service}', 'API\ServiceController@show');
 
 /* RESERVATION ROUTES */
  Route::post('/reservations','API\ReservationController@store');
-
- /* AUTHENTICATED USER ROUTE */
- Route::get('/auth', function(){
-    //  if(!Auth::check())
-    //  {
-    //      $user = App\User::find(2);
-    //      Auth::login($user);
-    //  }
-    //  return response()->json(Auth::user()->id);
-
-    // DB::table('personal_access_tokens')->where('tokenable_id',2)->pluck('tokenable_id');
-
-    // return User::find()->where('id',Auth::id());
-    return auth()->user();
- });
-    
 
