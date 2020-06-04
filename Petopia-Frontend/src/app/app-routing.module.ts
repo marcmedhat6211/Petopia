@@ -43,13 +43,13 @@ const routes: Routes = [
   },{
     path:'request-password-reset',
     component:RequestResetComponent,
-    canActivate:[AfterLoginService]
+    canActivate:[BeforeLoginService]
 
   },
   {
     path:'response-pssword-reset',
     component:ResponeResetComponent,
-    canActivate:[AfterLoginService]
+    canActivate:[BeforeLoginService]
 
   },
   {

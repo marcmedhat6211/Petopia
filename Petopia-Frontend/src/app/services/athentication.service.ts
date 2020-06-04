@@ -18,4 +18,18 @@ export class AthenticationService {
   signin(data){
     return this.http.post(`${this.baseUrl}/login`,data)
   }
+
+  sendPasswordResetLink(data){
+    return this.http.post(`${this.baseUrl}/sendPsswordResetLink`,data)
+  }
+
+  changePassword(data){
+    return this.http.post(`${this.baseUrl}/resetPassword`,data)
+
+  }
+
+  reservation(data){
+     
+    return this.http.post(`${this.baseUrl}/reservations`,data)
+  }
 }

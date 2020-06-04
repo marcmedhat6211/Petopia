@@ -26,6 +26,10 @@ Route::group([
     Route::post('logout', 'AuthController@logout');
     Route::post('refresh', 'AuthController@refresh');
     Route::post('me', 'AuthController@me');
+    Route::post('sendPsswordResetLink','PsswordResetController@sendEmail');
+    Route::post('resetPassword','ChangePasswordController@process');
+    Route::post('reservations','API\ReservationController@store');
+
 });
 
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
@@ -46,5 +50,5 @@ Route::group([
 Route::get('/services', 'API\ServiceController@index');
 Route::get('/services/{service}', 'API\ServiceController@show');
 
-/* RESERVATION ROUTES */
- Route::post('/reservations','API\ReservationController@store');
+
+
