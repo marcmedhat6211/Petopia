@@ -27,4 +27,9 @@ export class AthenticationService {
     return this.http.post(`${this.baseUrl}/resetPassword`,data)
 
   }
+
+  reservation(data){
+     
+    return this.http.post(`${this.baseUrl}/reservations`,data)
+  }
 }

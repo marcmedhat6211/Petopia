@@ -3,40 +3,50 @@
         <div class="card card-4">
             <div class="card-body">
                 <h2 class="title">Reservation Form</h2>
-                <form method="POST">
-                    <div class="row row-space">
-                            <div class="col-6">
-                                <div class="input-group">
-                                    <label class="label">Service</label>
-                                    <input class="input--style-4" type="text" value="{{service.data.service_name}}" name="service_name" readonly>
-                                </div>
+                <form #reserve=ngForm (ngSubmit)="onSubmit()">
+                    <div class=" row row-space ">
+                        <div class="col-6 ">
+                            <div class="alert alert-danger" [hidden]="!error">
+                                {{error}}
                             </div>
-                         <div class="col-6">
-                            <div class="input-group">
-                                <label class="label">Pet Owner Name</label>
-                                <input class="input--style-4" value="{{user.current_user.name}}" type="text" name="pet_owner_name" readonly>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="input-group">
-                                <label class="label">Date</label>
-                                    <input class="input--style-4 js-datepicker" style="height:50px;" type="date" name="date">
+                            <div class="input-group ">
+                                <label class="label "> Current Service</label>
+                                <select name="service_name " class="input--style-4 " style="height:50px; " [(ngModel)]="form.service_name">
+                                    <option selected>Current Service</option>
+                                        <option  >{{service.data.service_name}}</option>
+                                </select>
                             </div>
                         </div>
-                        <div class="col-6">
-                            <div class="input-group">
-                                <label class="label">Pet Name</label>
-                                <select name="pet_name" class="input--style-4" style="height:50px;">
+                        <div class="col-6 ">
+                            <div class="input-group ">
+                                <label class="label ">Pet Owner Name</label>
+                                <select name="client_name " class="input--style-4 " style="height:50px; " [(ngModel)]="form.client_name">
+                                    <option selected>Current User</option>
+                                        <option  >{{user.current_user.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-6 ">
+                            <div class="input-group ">
+                                <label class="label ">Date</label>
+                                <input class="input--style-4 js-datepicker " style="height:50px; " type="date" name="date" [(ngModel)]="form.date">
+                            </div>
+                        </div>
+                        <div class="col-6 ">
+                            <div class="input-group ">
+                                <label class="label ">Pet Name</label>
+                                <select name="pet_name " class="input--style-4 " style="height:50px; " [(ngModel)]="form.pet_name">
                                     <option selected>Select your pet's name</option>
-                                        <option *ngFor="let pet of user.current_user_pets; let i of index">{{pet}}</option>
+                                        <option *ngFor="let pet of user.current_user_pets; let i of index " >{{pet}}</option>
                                 </select>
                             </div>
                         </div>
                     </div>
-                    <div class="row row-space">
+                    <div class="row row-space ">
                     </div>
-                    <div class="p-t-15 text-center mt-4">
-                        <button class="btn btn--radius-2 btn--blue" type="submit" [routerLink]="'/home'">Book</button>
+                    <div class="p-t-15 text-center mt-4 ">
+                        <button class="btn btn--radius-2 btn--blue " type="submit" [disabled]="!reserve.valid">Book</button>
                     </div>
                 </form>
             </div>
