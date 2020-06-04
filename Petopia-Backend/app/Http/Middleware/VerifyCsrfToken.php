@@ -16,14 +16,11 @@ class VerifyCsrfToken extends Middleware
     protected $except = [
         '/api/login',
         '/api/signup',
-<<<<<<< HEAD
-        '/api/pet/add' // TODO: to be removed
+        '/api/pet/add', // TODO: to be removed
 
-=======
         '/api/sendPsswordResetLink',
         '/api/resetPassword',
-        '/api/me',
+        // '/api/me',
         '/api/reservations'
->>>>>>> 9de8059ede83799b3a5b63514d840ef1ee1a05d5
     ];
 }
