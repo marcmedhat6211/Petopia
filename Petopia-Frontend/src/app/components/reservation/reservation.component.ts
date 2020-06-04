@@ -14,27 +14,25 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./reservation.component.scss']
 })
 
+
 export class ReservationComponent implements OnInit {
 
 
   body = {
     "email": atob(window.localStorage.getItem('email')),
-    "password": atob(window.localStorage.getItem('password'))
+    "password": atob(window.localStorage.getItem('password')),
   };
   
 
   user: User;
   service: Service;
 
+  // document.getElemenyById('service_value')
 
 
-
-  constructor(private http: HttpClient, private route: ActivatedRoute,private router: Router, private athentication:AthenticationService,private token :TokenService ) { }
+  constructor(private http: HttpClient, private route: ActivatedRoute,private router: Router, private athentication:AthenticationService,private token :TokenService ){}
   ngOnInit(): void 
   {
-
-
-
     var id = window.location.pathname.split("/").pop();
     var token = window.localStorage.getItem('token');
     console.log(`Bearer ${token}`);
@@ -45,28 +43,28 @@ export class ReservationComponent implements OnInit {
         'Authorization': `Bearer ${token}`,
       })
     }).subscribe(data => {
-      console.log(data);
       this.user = data;
+      console.log(data);
     });
-    
+  
     this.http.get<Service>('http://localhost:8000/api/services/'+id).subscribe(data => {
       console.log(data);
-      this.service = data;    
+      this.service = data;
     });  
   }
 
   public form={
-    service_name:null,
+    service_name: null,
     client_name:null,
     date:null,
-    pet_name:null,
- 
+    pet_name:null, 
   }
+
   public error= null ;
   onSubmit(){
     console.log(this.form);
     
-   this.athentication.reservation(this.form).subscribe(
+    this.athentication.reservation(this.form).subscribe(
      
       (data)=>this.handleResponse(data),
       error=>this.handleError(error)
@@ -75,7 +73,7 @@ export class ReservationComponent implements OnInit {
 
 
   handleError(error){
-    this.error=error.error.errors
+    this.error=error.error.message
   }
 
   handleResponse(data){
