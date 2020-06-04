@@ -28,7 +28,7 @@ Route::group([
     Route::post('me', 'AuthController@me');
     Route::post('sendPsswordResetLink','PsswordResetController@sendEmail');
     Route::post('resetPassword','ChangePasswordController@process');
-
+    Route::post('reservations','API\ReservationController@store');
 
 });
 
@@ -50,6 +50,5 @@ Route::group([
 Route::get('/services', 'API\ServiceController@index');
 Route::get('/services/{service}', 'API\ServiceController@show');
 
-/* RESERVATION ROUTES */
- Route::post('/reservations','API\ReservationController@store');
+
 

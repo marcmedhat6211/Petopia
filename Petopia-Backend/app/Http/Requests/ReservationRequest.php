@@ -24,9 +24,9 @@ class ReservationRequest extends FormRequest
     public function rules()
     {
         return [
-            'client_id'=>'required|integer',
-            'pet_id'=>'required|integer',
-            'service_id'=>'required|integer',
+            'client_name'=>'required ',
+            'pet_name'=>'required ',
+            'service_name'=>'required ',
             'date'=>'required|date',
         ];
     }

@@ -29,6 +29,8 @@ export class TokenService {
 
   remove(){
     localStorage.removeItem('token')
+    localStorage.removeItem('email')
+    localStorage.removeItem('password')
   }
 
   isValild(){
