@@ -102,28 +102,6 @@ class PetController extends AdminController
 
         return $form;
     }
-    // public function store($request)
-    // {    
-    //     // dd(request());
-    //     // Pet::store([
-    //     //     'name' => request()->street_name,
-    //     //     'species' => request()->species ? true:false ,
-    //     //     'breed' => request()->breed,
-    //     //     'birthdate'=> request()->birthdate,
-    //     //     'color'=> request()->color,
-    //     //     'neutered'=> request()->neutered ? true:false,
-    //     //     'previous_problems'=> request()->color,
-    //     //     'drug_allergies'=> request()->color,
-    //     //     'current_diet'=> request()->color,
-    //     //     'current_medication'=> request()->color,
-    //     // ]);
-    //     Pet::create($request->all());
-
-    //     return response()->json([
-    //         'success'=>true, 
-    //         'message'=>'hello from laravel', 
-    //         'data'=>'mydata'
-    //     ]);
-    // }
+    // public function store()
 
 }

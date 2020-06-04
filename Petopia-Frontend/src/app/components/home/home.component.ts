@@ -11,7 +11,6 @@ import { Service } from '../../Service';
 export class HomeComponent implements OnInit {
 
   service: Service;
-  // serviceId: Service;
 
   constructor(private http: HttpClient) {}
 

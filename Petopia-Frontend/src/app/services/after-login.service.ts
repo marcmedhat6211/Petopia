@@ -8,7 +8,7 @@ import { TokenService } from './token.service';
 export class AfterLoginService implements CanActivate{
 
   constructor(private token :TokenService) { }
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | import("rxjs").Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
     return this.token.loggedIn()
   }
 }

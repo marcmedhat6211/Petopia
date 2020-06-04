@@ -26,6 +26,8 @@ import { AuthService } from './services/auth.service';
 import { AfterLoginService } from './services/after-login.service';
 import { BeforeLoginService } from './services/before-login.service';
 import { PetsService } from './services/pets.service';
+import { SnotifyModule, SnotifyService, ToastDefaults } from 'ng-snotify';
+
 
 @NgModule({
   declarations: [
@@ -57,9 +59,11 @@ import { PetsService } from './services/pets.service';
     FormsModule,
     HttpClientModule,
     CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }),
+    SnotifyModule
     
   ],
-  providers: [AthenticationService,TokenService,AuthService,AfterLoginService,BeforeLoginService, PetsService],
+  providers: [AthenticationService,TokenService,AuthService,AfterLoginService,BeforeLoginService,PetsService { provide: 'SnotifyToastConfig', useValue: ToastDefaults},
+  SnotifyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

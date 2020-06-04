@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\User;
+use App\Pet;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\UserRequest;
 
@@ -61,7 +62,13 @@ class AuthController extends Controller
      */
     public function me()
     {
-        return response()->json(auth()->user());
+        $current_user_pets = Pet::where('user_id', auth()->user()->id)->get()->pluck('name');
+
+        return response()->json(
+            [
+            'current_user' => auth()->user(),
+            'current_user_pets' => $current_user_pets
+            ]);
     }
 
     /**

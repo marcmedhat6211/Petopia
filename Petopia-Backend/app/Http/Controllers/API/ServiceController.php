@@ -16,10 +16,10 @@ class ServiceController extends Controller
         );
     }
 
-    public function show()
+    public function show($service)
     {
         return new ServiceResource(
-            Service::find(request()->service)
+            Service::find($service)
         );
     }
 }
