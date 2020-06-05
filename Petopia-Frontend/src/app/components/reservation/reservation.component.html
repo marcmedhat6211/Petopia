@@ -11,31 +11,13 @@
                         <div class="col-6 ">
                             <div class="input-group ">
                                 <label class="label "> Current Service</label>
-                                <!-- <input type="text" name="service_value" value="{{service.data.service_name}}" id="service_value">
-                                <input class="input--style-4" id="service_name" type="text" name="service_name" [(ngModel)]="form.service_name"> -->
-                                <!-- <input #service.data >{{service.data.service_name}} -->
-                                <!-- <select name="service_name " class="input--style-4 " style="height:50px; " [(ngModel)]="form.service_name">
-                                    <option selected>Current Service</option>
-                                        <option  >{{service.data.service_name}}</option>
-                                </select> -->
-                                <!-- <input class="input--style-4" type="text" value="{{service.data.service_name}}" name="service_name" [(ngModel)]="form.service_name"> -->
-                                <!-- <input class="input--style-4" type="text" value="{{service.data.service_name}}" name="service_name" [(ngModel)]="form.service_name"> -->
-
-
-
-                                <!-- <input type="hidden" name="service_name" value="{{service.data.service_name}}" [(ngModel)]="form.service_name">
-                                <input type="text" name="service_name" value="{{service.data.service_name}}" disabled="disabled" />  -->
+                                <input class="input--style-4" type="text" value="{{service.data.service_name}}" name="service_name" readonly>
                             </div>
                         </div>
                         <div class="col-6 ">
                             <div class="input-group ">
                                 <label class="label ">Pet Owner Name</label>
-                                <!-- <select name="client_name " class="input--style-4 " style="height:50px; " [(ngModel)]="form.client_name">
-                                    <option selected>Current User</option>
-                                        <option  >{{user.current_user.name}}</option>
-                                </select> -->
-                                <input class="input--style-4" type="text" value="{{user.current_user.name}}" name="current_user_name" [(ngModel)]="form.client_name">
-                                <!-- <input class="input--style-4" type="number" value="{{user.current_user.id}}" name="service_id" hidden> -->
+                                <input class="input--style-4" type="text" value="{{user.current_user.name}}" name="current_user_name" readonly>
                             </div>
                         </div>
 

@@ -14,70 +14,64 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./reservation.component.scss']
 })
 
-
-export class ReservationComponent implements OnInit {
-
+export class ReservationComponent implements OnInit{
 
   body = {
     "email": atob(window.localStorage.getItem('email')),
     "password": atob(window.localStorage.getItem('password')),
   };
-  
 
   user: User;
   service: Service;
 
-  // document.getElemenyById('service_value')
-
-
   constructor(private http: HttpClient, private route: ActivatedRoute,private router: Router, private athentication:AthenticationService,private token :TokenService ){}
   ngOnInit(): void 
   {
-    var id = window.location.pathname.split("/").pop();
-    var token = window.localStorage.getItem('token');
-    console.log(`Bearer ${token}`);
+      var id = window.location.pathname.split("/").pop();
+      var service_name = window.location.pathname.split("/")[2].replace(/%20/g,' ');
+      var token = window.localStorage.getItem('token');
+      console.log(`Bearer ${token}`);
+      
+      this.http.post<User>('http://localhost:8000/api/me', this.body,{
+        headers : new HttpHeaders({
+          'Accept' : 'application/json',
+          'Authorization': `Bearer ${token}`,
+        })
+      }).subscribe(data => {
+        this.user = data;
+        console.log(data);
+      });
     
-    this.http.post<User>('http://localhost:8000/api/me', this.body,{
-      headers : new HttpHeaders({
-        'Accept' : 'application/json',
-        'Authorization': `Bearer ${token}`,
-      })
-    }).subscribe(data => {
-      this.user = data;
-      console.log(data);
-    });
-  
-    this.http.get<Service>('http://localhost:8000/api/services/'+id).subscribe(data => {
-      console.log(data);
-      this.service = data;
-    });  
+      this.http.get<Service>('http://localhost:8000/api/services/'+id).subscribe(data => {
+        console.log(data);
+        this.service = data;
+        localStorage.setItem('service_name', service_name)
+      });  
   }
 
-  public form={
-    service_name: null,
-    client_name:null,
-    date:null,
-    pet_name:null, 
-  }
+    public form={
+      service_name: localStorage.getItem('service_name'),
+      client_name:localStorage.getItem('user_name'),
+      date:null,
+      pet_name:null, 
+    }
 
-  public error= null ;
-  onSubmit(){
+    public error= null ;
+    onSubmit(){
     console.log(this.form);
-    
-    this.athentication.reservation(this.form).subscribe(
-     
-      (data)=>this.handleResponse(data),
-      error=>this.handleError(error)
-    )
-  }
+      this.athentication.reservation(this.form).subscribe(
+        (data)=>this.handleResponse(data),
+        error=>this.handleError(error)
+      )
+      // alert('Reservation made successfully');
+    }
 
+    handleError(error){
+      this.error=error.error.message
+    }
 
-  handleError(error){
-    this.error=error.error.message
-  }
-
-  handleResponse(data){
-    this.token.handle(data.access_token)
-    this.router.navigateByUrl('/home')
-  }
+    handleResponse(data){
+      this.token.handle(data.access_token)
+      this.router.navigateByUrl('/home')
+    }
 }
