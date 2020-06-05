@@ -51,4 +51,10 @@ Route::get('/services', 'API\ServiceController@index');
 Route::get('/services/{service}', 'API\ServiceController@show');
 
 
+    // return User::find()->where('id',Auth::id());
+    return auth()->user();
+//  });
+    
+/*pet register */
+Route::post('/pet/add','API\PetsController@add');
 
