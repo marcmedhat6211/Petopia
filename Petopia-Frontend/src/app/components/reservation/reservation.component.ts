@@ -29,6 +29,7 @@ export class ReservationComponent implements OnInit{
   {
       var id = window.location.pathname.split("/").pop();
       var service_name = window.location.pathname.split("/")[2].replace(/%20/g,' ');
+      localStorage.setItem('service_name', service_name);
       var token = window.localStorage.getItem('token');
       console.log(`Bearer ${token}`);
       
@@ -45,13 +46,12 @@ export class ReservationComponent implements OnInit{
       this.http.get<Service>('http://localhost:8000/api/services/'+id).subscribe(data => {
         console.log(data);
         this.service = data;
-        localStorage.setItem('service_name', service_name)
       });  
   }
 
     public form={
       service_name: localStorage.getItem('service_name'),
-      client_name:localStorage.getItem('user_name'),
+      client_name: localStorage.getItem('user_name'),
       date:null,
       pet_name:null, 
     }
