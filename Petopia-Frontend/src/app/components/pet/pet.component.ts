@@ -19,7 +19,8 @@ export class PetComponent implements OnInit {
   user: User;
   LoggedInUserId: string;
 
-  constructor(private petService: PetsService,private http:HttpClient,private tokenService:TokenService) { }
+  constructor(private petService: PetsService,private http:HttpClient,private tokenService:TokenService) { 
+  }
 
   ngOnInit(): void {
 
@@ -45,8 +46,11 @@ export class PetComponent implements OnInit {
 //get data from html
   submit(f: NgForm) {
     // console.log(f.value);
+
+    
+    
     var token = this.tokenService.get();
-    console.log({token});
+  
               let decoded = this.tokenService.decode(token);
               console.log({decoded})
               this.LoggedInUserId = decoded.sub;
