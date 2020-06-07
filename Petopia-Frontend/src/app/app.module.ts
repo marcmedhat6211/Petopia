@@ -27,6 +27,7 @@ import { AfterLoginService } from './services/after-login.service';
 import { BeforeLoginService } from './services/before-login.service';
 import { PetsService } from './services/pets.service';
 import { SnotifyModule, SnotifyService, ToastDefaults } from 'ng-snotify';
+import { BoardingComponent } from './components/boarding/boarding.component';
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import { SnotifyModule, SnotifyService, ToastDefaults } from 'ng-snotify';
     
     ResponeResetComponent,
     ReservationComponent,
-    PetComponent
+    PetComponent,
+    BoardingComponent
     
   ],
   imports: [

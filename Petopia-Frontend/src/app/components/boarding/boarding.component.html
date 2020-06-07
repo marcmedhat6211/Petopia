@@ -1,3 +1,4 @@
+<!-- <p>boarding works!</p> -->
 <div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins ">
     <div class="wrapper wrapper--w680">
         <div class="card card-4">
@@ -39,11 +40,8 @@
                     </div>
                     <div class="row row-space ">
                     </div>
-                    <div *ngIf="service.data.service_name != 'Boarding' " class="p-t-15 text-center mt-4 ">
+                    <div class="p-t-15 text-center mt-4 ">
                         <button class="btn btn--radius-2 btn--blue " type="submit" [disabled]="!reserve.valid">Book</button>
-                    </div>
-                    <div *ngIf="service.data.service_name == 'Boarding' " class="p-t-15 text-center mt-4 ">
-                        <button class="btn btn--radius-2 btn--blue " type="submit" [disabled]="!reserve.valid">Next</button>
                     </div>
                 </form>
             </div>

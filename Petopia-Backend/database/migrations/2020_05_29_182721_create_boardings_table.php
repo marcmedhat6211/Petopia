@@ -17,7 +17,7 @@ class CreateBoardingsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('pet_id');
             $table->unsignedBigInteger('reservation_id');
-            $table->unsignedBigInteger('cage_id');
+            $table->unsignedBigInteger('cage_id')->nullable();
             $table->dateTime('end_date');
             $table->timestamps();
         });

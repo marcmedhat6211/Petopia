@@ -28,8 +28,6 @@ export class ReservationComponent implements OnInit{
   ngOnInit(): void 
   {
       var id = window.location.pathname.split("/").pop();
-      var service_name = window.location.pathname.split("/")[2].replace(/%20/g,' ');
-      localStorage.setItem('service_name', service_name);
       var token = window.localStorage.getItem('token');
       console.log(`Bearer ${token}`);
       
@@ -51,9 +49,13 @@ export class ReservationComponent implements OnInit{
       });  
   }
 
+    service_name = localStorage.getItem('service_name');
+    client_name = localStorage.getItem('user_name');
+    
+
     public form={
-      service_name: localStorage.getItem('service_name'),
-      client_name: localStorage.getItem('user_name'),
+      service_name: this.service_name,
+      client_name: this.client_name,
       date:null,
       pet_name:null, 
     }
@@ -65,6 +67,15 @@ export class ReservationComponent implements OnInit{
         (data)=>this.handleResponse(data),
         error=>this.handleError(error)
       )
+      
+      if(this.service_name == 'Boarding')
+      {
+        this.router.navigateByUrl('/boarding');
+      }
+      else
+      {
+        this.router.navigateByUrl('/home');
+      }
       // alert('Reservation made successfully');
     }
 
@@ -74,6 +85,5 @@ export class ReservationComponent implements OnInit{
 
     handleResponse(data){
       this.token.handle(data.access_token)
-      this.router.navigateByUrl('/home')
     }
 }

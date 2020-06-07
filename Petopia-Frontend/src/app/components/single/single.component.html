@@ -28,7 +28,8 @@
                 </div>
             </div>
                 <div class="service_content text-left ml-5 mt-4" style="padding-top: 20px;">
-                    <a [routerLink]="['/reservation', service.data.service_name, service.data.id]" class="genric-btn danger circle">Make Reservation</a>
+                    <a [routerLink]="['/reservation', service.data.service_name, service.data.id]" *ngIf="loggedIn" class="genric-btn danger circle">Make Reservation</a>
+                    <a [routerLink]="['/login']" *ngIf="!loggedIn" class="genric-btn danger circle">Make Reservation</a>
                 </div>
         </div>
     </div>
