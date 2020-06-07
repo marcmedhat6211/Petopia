@@ -20,7 +20,7 @@ class VerifyCsrfToken extends Middleware
 
         '/api/sendPsswordResetLink',
         '/api/resetPassword',
-        // '/api/me',
+        '/api/me',
         '/api/reservations'
     ];
 }
