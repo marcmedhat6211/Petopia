@@ -24,6 +24,7 @@
     "bootstrap": "^4.5.0",
     "date-fns": "^2.13.0",
     "flatpickr": "^4.6.3",
+    "jwt-decode": "^2.2.0",
     "ng-bootstrap": "^1.6.3",
     "ng-snotify": "^9.0.1",
     "rxjs": "~6.5.4",

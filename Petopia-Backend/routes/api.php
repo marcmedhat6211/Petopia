@@ -29,7 +29,7 @@ Route::group([
     Route::post('sendPsswordResetLink','PsswordResetController@sendEmail');
     Route::post('resetPassword','ChangePasswordController@process');
     Route::post('reservations','API\ReservationController@store');
-
+    Route::post('/pet/add','API\PetsController@add');
 });
 
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

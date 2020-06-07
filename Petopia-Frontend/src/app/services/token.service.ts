@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { decode } from 'punycode';
+import * as jwt_decode from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root'
@@ -54,10 +55,13 @@ export class TokenService {
   }
 
 
-  decode(payload){
-    return JSON.parse(atob(payload))
-  }
+  // decode(payload){
+  //   return JSON.parse(atob(payload))
+  // }
 
+  decode(token) {
+    return jwt_decode(token);
+  }
   loggedIn(){
     return this.isValild()
   }
