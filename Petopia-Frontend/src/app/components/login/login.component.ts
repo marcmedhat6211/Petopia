@@ -5,6 +5,7 @@ import { TokenService } from 'src/app/services/token.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { Current_User } from '../../Current_User';
 
+//hena hagyb kol el data lel user el ana me7tagha
 
 @Component({
   selector: 'app-login',
@@ -40,14 +41,13 @@ export class LoginComponent  implements OnInit{
     this.token.handle(data.access_token)
     this.auth.changeAuthStatus(true)
     this.router.navigateByUrl('/home')
-    this.current_user = data.user
-    console.log(data);
-    console.log(this.current_user);
+    // this.current_user = data.user
+    // console.log(data);
+    // console.log(this.current_user);
+    localStorage.setItem('user_name',data.user)
   }
 
-  ngOnInit(): void {
-    
-    
+  ngOnInit(): void{
   }
 
   

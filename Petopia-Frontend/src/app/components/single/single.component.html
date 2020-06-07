@@ -13,9 +13,6 @@
 </div>
 <!-- bradcam_area_end -->
 
-
-
-
 <!-- Start Align Area -->
 <div class="whole-wrap">
     <div class="container box_1170">
@@ -23,22 +20,21 @@
             <h3 class="mb-30"> </h3>
             <div class="row">
                 <div class="col-md-3">
-                    <img src="assets/img/elements/d.jpg" alt="" class="img-fluid">
+                    <img src="assets/img/service/{{service.data.service_name}}.png" alt="" class="img-fluid">
+                    <img src="assets/img/service/{{service.data.service_name}}.svg" alt="" class="img-fluid">
                 </div>
                 <div class="col-md-9 mt-sm-20">
                     <p> {{service.data.description}}</p>
                 </div>
             </div>
-            <div class="row">
-                <div class="service_content text-center" style="padding-top: 20px;">
+                <div class="service_content text-left ml-5 mt-4" style="padding-top: 20px;">
                     <a [routerLink]="['/reservation', service.data.service_name, service.data.id]" class="genric-btn danger circle">Make Reservation</a>
                 </div>
-            </div>
         </div>
     </div>
 </div>
 
-<app-calendar></app-calendar>
+<!-- <app-calendar></app-calendar> -->
 
 <br>
 <br>

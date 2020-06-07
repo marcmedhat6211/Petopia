@@ -66,8 +66,10 @@
                     <div class="single_service" style="padding-bottom: 20px;">
                         <div class="service_thumb service_icon_bg_1 d-flex align-items-center justify-content-center">
                             <div class="service_icon text-center">
-                                <img src="assets/img/service/{{s.service_name}}.png" style="width: 120px;height: 120px;" alt="">
-                                <!-- <img *ngIf="s.service_name =='Grooming'||'Anti Flees and Ticks'" src="assets/img/service/{{s.service_name}}.svg" style="width: 120px;height: 120px;" alt=""> -->
+                                <picture>
+                                    <source media="(min-width:650px)" srcset="assets/img/service/{{s.service_name}}.png">
+                                    <img src="assets/img/service/{{s.service_name}}.png" style="width: 120px;height: 120px;" alt="">
+                                </picture>
                             </div>
                         </div>
                         <div class="service_content text-center">

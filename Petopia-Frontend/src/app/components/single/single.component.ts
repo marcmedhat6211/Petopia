@@ -21,7 +21,7 @@ export class SingleComponent implements OnInit {
  
     this.http.get<Service>('http://localhost:8000/api/services/'+idInteger).subscribe(data => {
       console.log(data);
-      this.service = data;    
+      this.service = data;
     });  
   }
    
