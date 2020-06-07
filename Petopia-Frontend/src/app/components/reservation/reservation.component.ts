@@ -33,6 +33,8 @@ export class ReservationComponent implements OnInit{
       var token = window.localStorage.getItem('token');
       console.log(`Bearer ${token}`);
       
+      //me7tag an2el dh f service bara wa7do
+      //http interceptor (bey3ady 3aleh kol el http requests el ana bab3atha)
       this.http.post<User>('http://localhost:8000/api/me', this.body,{
         headers : new HttpHeaders({
           'Accept' : 'application/json',
