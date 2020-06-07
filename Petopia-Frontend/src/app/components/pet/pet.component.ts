@@ -3,6 +3,7 @@ import { PetsService } from 'src/app/services/pets.service';
 import { NgForm } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from 'src/app/User';
+import { TokenService } from 'src/app/services/token.service';
 
 
 @Component({
@@ -11,12 +12,14 @@ import { User } from 'src/app/User';
   styleUrls: ['./pet.component.scss']
 })
 export class PetComponent implements OnInit {
-  body = {
-    "email": atob(window.localStorage.getItem('email')),
-    "password": atob(window.localStorage.getItem('password')),
-    }; 
+  // body = {
+  //   "email": atob(window.localStorage.getItem('email')),
+  //   "password": atob(window.localStorage.getItem('password')),
+  //   }; 
   user: User;
-  constructor(private petService: PetsService,private http:HttpClient) { }
+  LoggedInUserId: string;
+
+  constructor(private petService: PetsService,private http:HttpClient,private tokenService:TokenService) { }
 
   ngOnInit(): void {
 
@@ -27,24 +30,29 @@ export class PetComponent implements OnInit {
       console.log(error)
     },) 
 
-var token = window.localStorage.getItem('token'); 
-    this.http.post<User>('http://localhost:8000/api/me', this.body,{
-    headers : new HttpHeaders({
-    'Accept' : 'application/json',
-    'Authorization': `Bearer ${token}`,
-    })
-    }).subscribe(data => {
-      this.user = data;
-      console.log(data);
-      }); 
+// var token = window.localStorage.getItem('token'); 
+//     this.http.post<User>('http://localhost:8000/api/me', this.body,{
+//     headers : new HttpHeaders({
+//     'Accept' : 'application/json',
+//     'Authorization': `Bearer ${token}`,
+//     })
+//     }).subscribe(data => {
+//       this.user = data;
+//       console.log(data);
+//       }); 
 
   }
 //get data from html
   submit(f: NgForm) {
-    console.log(f.value);
+    // console.log(f.value);
+    var token = this.tokenService.get();
+    console.log({token});
+              let decoded = this.tokenService.decode(token);
+              console.log({decoded})
+              this.LoggedInUserId = decoded.sub;
     const pet = {
       name:f.value.petName,
-      user_id:"1",
+      user_id:this.LoggedInUserId,
       // user_id:data.current_user.id,
       breed:f.value.breed,
       birthday:f.value.birthday,
