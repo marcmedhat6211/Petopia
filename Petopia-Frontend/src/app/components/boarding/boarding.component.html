@@ -3,7 +3,7 @@
     <div class="wrapper wrapper--w680">
         <div class="card card-4">
             <div class="card-body">
-                <h2 class="title">Reservation Form</h2>
+                <h2 class="title">Boarding Form</h2>
                 <form #reserve=ngForm (ngSubmit)="onSubmit()">
                     <div class="alert alert-danger" [hidden]="!error">
                         {{error}}
@@ -11,31 +11,21 @@
                     <div class=" row row-space ">
                         <div class="col-6 ">
                             <div class="input-group ">
-                                <label class="label "> Current Service</label>
-                                <input class="input--style-4" type="text" value="{{service.data.service_name}}" name="service_name" readonly>
-                            </div>
-                        </div>
-                        <div class="col-6 ">
-                            <div class="input-group ">
-                                <label class="label ">Pet Owner Name</label>
-                                <input class="input--style-4" type="text" value="{{user.current_user.name}}" name="current_user_name" readonly>
+                                <input class="input--style-4" type="text" value="" name="pet_name" hidden>
                             </div>
                         </div>
 
                         <div class="col-6 ">
                             <div class="input-group ">
-                                <label class="label ">Date</label>
-                                <input class="input--style-4 js-datepicker " style="height:50px; " type="date" name="date" [(ngModel)]="form.date">
+                                <input class="input--style-4" type="number" value="form.reservation_id" name="reservation_id" hidden>
                             </div>
                         </div>
+
                         <div class="col-6 ">
                             <div class="input-group ">
-                                <label class="label ">Pet Name</label>
-                                <select name="pet_name " class="input--style-4 " style="height:50px; " [(ngModel)]="form.pet_name">
-                                    <option selected>Select your pet's name</option>
-                                        <option *ngFor="let pet of user.current_user_pets; let i of index " >{{pet}}</option>
-                                </select>
-                            </div>
+                                <label class="label ">End Date</label>
+                                <input class="input--style-4 js-datepicker " style="height:50px; " type="date" name="date" [(ngModel)]="form.end_date">
+                            </div>  
                         </div>
                     </div>
                     <div class="row row-space ">

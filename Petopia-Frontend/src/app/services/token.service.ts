@@ -17,7 +17,6 @@ export class TokenService {
 
   handle(token){
     this.set(token)
-    
   }
 
   set(token){
@@ -29,10 +28,11 @@ export class TokenService {
   }
 
   remove(){
-    localStorage.removeItem('token')
-    localStorage.removeItem('email')
-    localStorage.removeItem('password')
-    localStorage.removeItem('service_name')
+    // localStorage.removeItem('token')
+    // localStorage.removeItem('email')
+    // localStorage.removeItem('password')
+    // localStorage.removeItem('service_name')
+    localStorage.clear();
   }
 
   isValild(){
@@ -50,7 +50,6 @@ export class TokenService {
 
   payload(token){
     const payload= token.split('.')[1]
-
     return this.decode(payload)
   }
 
@@ -59,10 +58,20 @@ export class TokenService {
   //   return JSON.parse(atob(payload))
   // }
 
-  decode(token) {
-    return jwt_decode(token);
+  decode(token) 
+  {
+    if(!token)
+    {
+      return false;
+    }
+    else
+    {
+      return jwt_decode(token, {header:true});
+    }
   }
-  loggedIn(){
+
+  loggedIn()
+  {
     return this.isValild()
   }
 }

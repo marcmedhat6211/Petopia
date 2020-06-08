@@ -32,4 +32,8 @@ export class AthenticationService {
      
     return this.http.post(`${this.baseUrl}/reservations`,data)
   }
+
+  boarding(data){
+    return this.http.post(`${this.baseUrl}/boardings`, data)
+  }
 }

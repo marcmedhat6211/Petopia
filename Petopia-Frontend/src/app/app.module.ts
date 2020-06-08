@@ -14,7 +14,7 @@ import { LoginComponent } from './components/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { RouterModule ,Routes} from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { UserService } from './shared/user.service';
 import { RequestResetComponent } from './components/password/request-reset/request-reset.component';
 import { ResponeResetComponent } from './components/password/respone-reset/respone-reset.component';
@@ -28,6 +28,7 @@ import { BeforeLoginService } from './services/before-login.service';
 import { PetsService } from './services/pets.service';
 import { SnotifyModule, SnotifyService, ToastDefaults } from 'ng-snotify';
 import { BoardingComponent } from './components/boarding/boarding.component';
+import { TokenInterceptorService } from './services/token-interceptor.service';
 
 
 @NgModule({
@@ -65,7 +66,11 @@ import { BoardingComponent } from './components/boarding/boarding.component';
     
   ],
   providers: [AthenticationService,TokenService,PetsService ,AuthService,AfterLoginService,BeforeLoginService,{ provide: 'SnotifyToastConfig', useValue: ToastDefaults},
-  SnotifyService],
+  SnotifyService,{
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptorService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

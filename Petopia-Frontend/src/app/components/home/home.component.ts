@@ -17,12 +17,8 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void 
   {
     this.http.get<Service>('http://localhost:8000/api/services').subscribe((data) => {
-      console.log(data);
       this.service = data;
-      console.log(this.service);
     });
   }
-
   
-
 }

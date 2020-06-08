@@ -60,6 +60,7 @@ export class PetComponent implements OnInit {
       // user_id:data.current_user.id,
       breed:f.value.breed,
       birthday:f.value.birthday,
+      age:f.value.age,
       color:f.value.color,
       neutred:f.value.neutred,
       
