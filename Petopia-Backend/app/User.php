@@ -7,6 +7,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Facades\Hash;
 
 class User extends Authenticatable implements JWTSubject
 {
@@ -19,7 +20,7 @@ class User extends Authenticatable implements JWTSubject
      */
     protected $guarded = [
     ];
-
+    
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -38,6 +39,8 @@ class User extends Authenticatable implements JWTSubject
         'email_verified_at' => 'datetime',
     ];
 
+
+ 
     // Rest omitted for brevity
 
     /**
@@ -75,7 +78,11 @@ class User extends Authenticatable implements JWTSubject
         return $this->hasMany('App\Consultation');
     }
 
-
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = Hash::make($value);
+    } 
+    
 
     
 }
