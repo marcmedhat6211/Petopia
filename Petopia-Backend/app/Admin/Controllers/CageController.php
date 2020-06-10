@@ -32,6 +32,7 @@ class CageController extends AdminController
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
 
+
         return $grid;
     }
 

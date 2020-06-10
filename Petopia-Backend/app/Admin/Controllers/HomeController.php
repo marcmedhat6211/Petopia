@@ -15,23 +15,37 @@ class HomeController extends Controller
 
         return $content
             ->title('Dashboard')
-            ->description('Description...')
-            ->row(Dashboard::title())
-            ->row(function (Row $row) {
+            ->description('<h4> Admin Panel</h4>')
+            ->header('Petopia')
+            
+        
 
-                $row->column(4, function (Column $column) {
-                    $column->append(Dashboard::environment());
-                });
 
-                $row->column(4, function (Column $column) {
-                    $column->append(Dashboard::extensions());
-                });
+           ->row(function (Row $row) {
 
-                $row->column(4, function (Column $column) {
-                    $column->append(Dashboard::dependencies());
-                });
-                
+            $row->column(4, '');
+        
+            $row->column(8, function (Column $column) {
+                $column->row('<h1>Petopia</h1>');
+              
             });
+        });
+
+          //  ->row(function (Row $row) {
+
+                // $row->column(4, function (Column $column) {
+                //     $column->append(Dashboard::environment());
+                // });
+
+                // $row->column(4, function (Column $column) {
+                //     $column->append(Dashboard::extensions());
+                // });
+
+                // $row->column(4, function (Column $column) {
+                //     $column->append(Dashboard::dependencies());
+                // });
+                
+           // });
             // ->breadcrumb(
             //     ['text' => 'Dashboard', 'url' => '/admin'],
             //     ['text' => 'User management', 'url' => '/admin/users'],

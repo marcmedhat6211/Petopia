@@ -30,13 +30,20 @@ class UserController extends AdminController
         $grid->column('id', __('Id'));
         $grid->column('name', __('Name'));
         $grid->column('email', __('Email'));
-        $grid->column('email_verified_at', __('Email verified at'));
-        $grid->column('password', __('Password'));
         $grid->column('phone_number', __('Phone number'));
         $grid->column('recommendation', __('Recommendation'));
         $grid->column('address', __('Address'));
+        //$grid->column('created_at')->date('Y-m-d');
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
+
+         //filter by name
+        $grid->filter(function($filter){
+
+            $filter->disableIdFilter();
+            $filter->like('name', 'name');
+        
+        });
 
         return $grid;
     }
@@ -54,11 +61,10 @@ class UserController extends AdminController
         $show->field('id', __('Id'));
         $show->field('name', __('Name'));
         $show->field('email', __('Email'));
-        $show->field('email_verified_at', __('Email verified at'));
-        $show->field('password', __('Password'));
         $show->field('phone_number', __('Phone number'));
         $show->field('recommendation', __('Recommendation'));
         $show->field('address', __('Address'));
+
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
 
