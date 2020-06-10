@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { decode } from 'punycode';
+import * as jwt_decode from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,6 @@ export class TokenService {
 
   handle(token){
     this.set(token)
-    
   }
 
   set(token){
@@ -28,9 +28,11 @@ export class TokenService {
   }
 
   remove(){
-    localStorage.removeItem('token')
-    localStorage.removeItem('email')
-    localStorage.removeItem('password')
+    // localStorage.removeItem('token')
+    // localStorage.removeItem('email')
+    // localStorage.removeItem('password')
+    // localStorage.removeItem('service_name')
+    localStorage.clear();
   }
 
   isValild(){
@@ -48,16 +50,28 @@ export class TokenService {
 
   payload(token){
     const payload= token.split('.')[1]
-
     return this.decode(payload)
   }
 
 
-  decode(payload){
-    return JSON.parse(atob(payload))
+  // decode(payload){
+  //   return JSON.parse(atob(payload))
+  // }
+
+  decode(token) 
+  {
+    if(!token)
+    {
+      return false;
+    }
+    else
+    {
+      return jwt_decode(token, {header:true});
+    }
   }
 
-  loggedIn(){
+  loggedIn()
+  {
     return this.isValild()
   }
 }

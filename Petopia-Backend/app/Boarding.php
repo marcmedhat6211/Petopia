@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Boarding extends Model
 {
+    protected $guarded = [];
+
     public function pet()
     {
         return $this->belongsTo('App\Pet');
