@@ -22,7 +22,7 @@ class ReservationController extends Controller
         $isExists = Reservation::where('user_id',User::where('name',$request->client_name)->pluck('id')->first())
             ->where('pet_id',Pet::where('name',$request->pet_name)->pluck('id')->first())
             ->where('service_id',Service::where('name',$request->service_name)->pluck('id')->first())
-            ->where('date',$request->date)->exists();
+            ->where('date',$request->date)->exists();   
                
         if ($isExists) 
         {
@@ -37,5 +37,31 @@ class ReservationController extends Controller
         $reservation->save();
 
         return response()->json(['reservation_id' => $reservation->id ,'status' => 'success' ]);
+    }
+
+    public function destroy($id)
+    {
+        // dd($id);
+        if(Reservation::find($id)->delete())
+        {
+            return response()->json([
+                'status' => 'success',
+                'message'=> 'Reservation Cancled'
+            ]);
+        }
+        else
+        {
+            return response()->json([
+                'message' => 'Error, failed to cancel reservation'
+            ]);
+        }
+
+        // $reservation = Reservation::find($id);
+        // $reservation->delete();
+
+        // return response()->json([
+        //     'status' => 'success',
+        //     'message' => 'Reservation canceled'
+        // ]);
     }
 }

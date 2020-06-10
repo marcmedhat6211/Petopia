@@ -21,19 +21,27 @@
                             </div>
                         </div>
 
-                        <div class="col-6 ">
+                        <div class="col-6 mb-5">
                             <div class="input-group ">
                                 <label class="label ">End Date</label>
                                 <input class="input--style-4 js-datepicker " style="height:50px; " type="date" name="date" [(ngModel)]="form.end_date">
                             </div>  
                         </div>
                     </div>
-                    <div class="row row-space ">
+                    <div class="p-t-15 text-center mt-4">
+                        <!-- <div class="col-6 text-center"> -->
+                            <button class="btn btn--radius-2 btn--blue " type="submit" [disabled]="!reserve.valid">Book</button> 
+                        <!-- </div> -->
                     </div>
-                    <div class="p-t-15 text-center mt-4 ">
+                    <!-- <div class="p-t-15 text-center mt-4">
                         <button class="btn btn--radius-2 btn--blue " type="submit" [disabled]="!reserve.valid">Book</button>
-                    </div>
+                    </div> -->
                 </form>
+                <!-- <form method="DELETE"> -->
+                    <div class="p-t-15 text-center mt-4">
+                        <button (click)="onCancel()" class="btn btn--radius-2 btn--blue">Cancel</button>
+                    </div>
+                <!-- </form>  -->
             </div>
         </div>
     </div>

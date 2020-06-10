@@ -63,6 +63,11 @@ const routes: Routes = [
     canActivate:[AfterLoginService]
   },
   {
+    path: 'reservations/:id',
+    component: BoardingComponent,
+    canActivate:[AfterLoginService]
+  },
+  {
     path:'pet',
     component:PetComponent,
     // canActivate:[AfterLoginService]

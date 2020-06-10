@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AthenticationService } from 'src/app/services/athentication.service';
 import { Router } from '@angular/router';
 import { TokenService } from 'src/app/services/token.service';
+import { id } from 'date-fns/locale';
 
 @Component({
   selector: 'app-boarding',
@@ -23,21 +24,30 @@ export class BoardingComponent implements OnInit {
   }
 
   public error= null ;
+
   onSubmit(){
   console.log(this.form);
     this.athentication.boarding(this.form).subscribe(
       (data)=>this.handleResponse(data),
       error=>this.handleError(error)
     )
-    // localStorage.removeItem('reservation_id');
+  }
+
+  onCancel(){
+    var id = +(localStorage.getItem('reservation_id'))
+    this.athentication.deleteReservation(id).subscribe(
+      (data)=>this.handleResponse(data)
+    )  
+    alert('Reservation canceled');
+    this.router.navigateByUrl('/home')
   }
 
   handleError(error){
-    this.error=error.error.message
+    this.error=error.error.messaidStringge
   }
 
   handleResponse(data){
-    this.token.handle(this.token.decode(this.token.get()))
+    this.token.handle(this.token.get())
     this.router.navigateByUrl('/home');
   }
 }

@@ -16,10 +16,8 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::group([
-
     'middleware' => 'api',
     //'prefix' => 'auth'
-
 ], function ($router) {
     Route::post('login', 'AuthController@login');
     Route::post('signup', 'AuthController@signup');
@@ -31,7 +29,11 @@ Route::group([
     Route::post('reservations','API\ReservationController@store');
     Route::post('/pet/add','API\PetsController@add');
     Route::post('/boardings', 'API\BoardingController@add');
+    Route::delete('reservations/{id}', 'API\ReservationController@destroy');
 });
+
+Route::get('/services', 'API\ServiceController@index');
+Route::get('/services/{service}', 'API\ServiceController@show');
 
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $request->user();
@@ -48,12 +50,10 @@ Route::group([
 // Route::post('/logout','LoginController@logout')->middleware('auth:sanctum');
 
 /* SERVICE ROUTES */
-Route::get('/services', 'API\ServiceController@index');
-Route::get('/services/{service}', 'API\ServiceController@show');
 
 
     // return User::find()->where('id',Auth::id());
-    return auth()->user();
+    // return auth()->user();
 //  });
     
 /*pet register */
