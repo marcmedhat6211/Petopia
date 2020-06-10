@@ -48,7 +48,7 @@ class AuthController extends Controller
             'recommendation'=>$request->recommendation,
             'phone_number'=>$request->phone_number,
             'address'=>$request->address,
-            'password'=>Hash::make($request->password),
+            'password'=> $request->password,
         ]);
        
        

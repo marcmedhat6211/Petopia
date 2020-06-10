@@ -8,6 +8,8 @@ use Encore\Admin\Form;
 use Encore\Admin\Form\Field\Nullable;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
+use Illuminate\Support\Facades\Hash;
+
 
 class UserController extends AdminController
 {
@@ -83,7 +85,7 @@ class UserController extends AdminController
         $form->text('name', __('Name'))->rules('required|min:3');
         $form->email('email', __('Email'))->rules('required|unique:users');
         $form->datetime('email_verified_at', __('Email verified at'))->default(date('Y-m-d H:i:s'))->rules('required');
-        $form->password('password', __('Password'))->rules('required|min:6|regex:"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"', [
+        $form->password('password',__('Password'))->rules('required|min:6|regex:"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"', [
             'regex' => 'at least one letter and one number',
         ]);
         $form->text('phone_number', __('Phone number'))->rules('required|min:11');
