@@ -44,6 +44,6 @@ export class RegisterComponent  implements OnInit{
 
   handleResponse(data){
     this.token.handle(data.access_token)
-    this.router.navigateByUrl('/pet')
+    this.router.navigateByUrl('/home')
   }
 }

@@ -45,10 +45,10 @@ export class PetComponent implements OnInit {
   }
 //get data from html
   submit(f: NgForm) {
-    // console.log(f.value);
+    console.log(f.value);
 
     
-    
+  
     var token = this.tokenService.get();
   
               let decoded = this.tokenService.decode(token);
@@ -58,12 +58,13 @@ export class PetComponent implements OnInit {
       name:f.value.petName,
       user_id:this.LoggedInUserId,
       // user_id:data.current_user.id,
+      species:f.value.species,
       breed:f.value.breed,
       birthday:f.value.birthday,
-      age:f.value.age,
       color:f.value.color,
       neutred:f.value.neutred,
-      
+      age:f.value.age,
+      gender:f.value.gender,
       drug_allergies:f.value.allergies,
       current_diet:f.value.diet,
       current_medication:f.value.meds,

@@ -47,7 +47,7 @@ export class BoardingComponent implements OnInit {
   }
 
   handleResponse(data){
-    this.token.handle(this.token.get())
+    this.token.handle(data.access_token)
     this.router.navigateByUrl('/home');
   }
 }

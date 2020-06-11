@@ -16,20 +16,42 @@
                                 <div class="input-group">
                                     <label class="label">Species
                                     </label>
-                                    <label for="true">cat</label><br>
-                                    <input type="radio" id="true" name="species" value="cat">
-                                    <label for="false">dog</label><br>
-                                    <input type="radio" id="false" name="species" value="dog">
+                                    <label for="true">Cat</label><br>
+                                    <input type="radio" id="true" name="species" value="cat" ngModel>
+                                    <label for="false">Dog</label><br>
+                                    <input type="radio" id="false" name="species" value="dog" ngModel >
                                     
                                 </div>
                             </div>
                         </div>
+                        <div class="row row-space">
+                            <div class="col-6">
+                                <div class="input-group">
+                                    <label class="label">Gender
+                                    </label>
+                                    <label for="true">Male</label><br>
+                                    <input type="radio" id="true" name="gender" value="male" ngModel>
+                                    <label for="false">Female</label><br>
+                                    <input type="radio" id="false" name="gender" value="female" ngModel>
+                                    
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="col-6">
                             <div class="input-group">
                                 <label class="label">Breed</label>
                                 <input class="input--style-4" type="text" name="breed" #breed="ngModel" ngModel required>
                             </div>
                         </div>     
+                    </div>
+                    <div class="row row-space">
+                        <div class="col-6">
+                            <div class="input-group">
+                                <label class="label">Age</label>
+                                <input class="input--style-4" type="number" name="age" #age="ngModel" ngModel required>
+                            </div>
+                        </div>
                     </div>
                     <div class="row row-space">
                         <div class="col-6">
@@ -53,9 +75,9 @@
                                 <label class="label">Neutered</label><br>
                                 <div>
                                 <label for="true">Yes</label><br>
-                                <input type="radio" id="true" name="neutered" value="yes">
+                                <input type="radio" id="true" name="neutered" value="yes" ngModel>
                                 <label for="false">No</label><br>
-                                <input type="radio" id="false" name="neutered" value="no">
+                                <input type="radio" id="false" name="neutered" value="no" ngModel>
                                 </div>
                                 <!-- <input class="input--style-4" type="text" name="neutered" #petName="ngModel" ngModel required minlength="3"> -->
                             </div>
