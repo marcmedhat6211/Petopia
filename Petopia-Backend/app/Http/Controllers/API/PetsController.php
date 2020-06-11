@@ -25,7 +25,7 @@ class PetsController extends Controller
             'drug_allergies' => request()->drug_allergies,
             'current_diet' => request()->current_diet,
             'current_medication'=> request()->current_medication,
-
+            'weight'=>request()->weight,
             'gender'=> request()->gender,
       
            

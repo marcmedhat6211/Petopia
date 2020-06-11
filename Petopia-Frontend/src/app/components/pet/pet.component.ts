@@ -18,6 +18,8 @@ export class PetComponent implements OnInit {
   //   }; 
   user: User;
   LoggedInUserId: string;
+  message:string;
+  savePetError:boolean= false;
 
   constructor(private petService: PetsService,private http:HttpClient,private tokenService:TokenService) { 
   }
@@ -31,16 +33,6 @@ export class PetComponent implements OnInit {
       console.log(error)
     },) 
 
-// var token = window.localStorage.getItem('token'); 
-//     this.http.post<User>('http://localhost:8000/api/me', this.body,{
-//     headers : new HttpHeaders({
-//     'Accept' : 'application/json',
-//     'Authorization': `Bearer ${token}`,
-//     })
-//     }).subscribe(data => {
-//       this.user = data;
-//       console.log(data);
-//       }); 
 
   }
 //get data from html
@@ -60,7 +52,7 @@ export class PetComponent implements OnInit {
       // user_id:data.current_user.id,
       species:f.value.species,
       breed:f.value.breed,
-      birthday:f.value.birthday,
+      weight:f.value.weight,
       color:f.value.color,
       neutred:f.value.neutred,
       age:f.value.age,
@@ -81,6 +73,7 @@ export class PetComponent implements OnInit {
     .subscribe((data: any[])=>{
       console.log(data);
     }, error => {
+      this.savePetError = true;
       console.log(error)
     },) 
   }
