@@ -18,6 +18,10 @@ export class PetComponent implements OnInit {
   //   }; 
   user: User;
   LoggedInUserId: string;
+  message:string;
+  savePetError:boolean= false;
+  savePetSuccess:boolean= false;
+
 
   constructor(private petService: PetsService,private http:HttpClient,private tokenService:TokenService) { 
   }
@@ -31,24 +35,14 @@ export class PetComponent implements OnInit {
       console.log(error)
     },) 
 
-// var token = window.localStorage.getItem('token'); 
-//     this.http.post<User>('http://localhost:8000/api/me', this.body,{
-//     headers : new HttpHeaders({
-//     'Accept' : 'application/json',
-//     'Authorization': `Bearer ${token}`,
-//     })
-//     }).subscribe(data => {
-//       this.user = data;
-//       console.log(data);
-//       }); 
 
   }
 //get data from html
   submit(f: NgForm) {
-    // console.log(f.value);
+    console.log(f.value);
 
     
-    
+  
     var token = this.tokenService.get();
   
               let decoded = this.tokenService.decode(token);
@@ -58,12 +52,13 @@ export class PetComponent implements OnInit {
       name:f.value.petName,
       user_id:this.LoggedInUserId,
       // user_id:data.current_user.id,
+      species:f.value.species,
       breed:f.value.breed,
-      birthday:f.value.birthday,
-      age:f.value.age,
+      weight:f.value.weight,
       color:f.value.color,
       neutred:f.value.neutred,
-      
+      age:f.value.age,
+      gender:f.value.gender,
       drug_allergies:f.value.allergies,
       current_diet:f.value.diet,
       current_medication:f.value.meds,
@@ -74,12 +69,17 @@ export class PetComponent implements OnInit {
     this.addPet(pet);
   }
 
+ 
+
+  
 
   addPet(pet) {
     this.petService.registerPet(pet)
     .subscribe((data: any[])=>{
       console.log(data);
+      this.savePetSuccess=true;
     }, error => {
+      this.savePetError = true;
       console.log(error)
     },) 
   }

@@ -15,7 +15,7 @@ class PetsController extends Controller
         $pet = Pet::create([
             'name' => request()->name,
             'user_id' => request()->user_id,
-            // 'species' => request()->species ? true:false ,
+            'species' => request()->species,
             'breed' => request()->breed,
             'color' => request()->color,
             'age' => request()->age,
@@ -25,10 +25,10 @@ class PetsController extends Controller
             'drug_allergies' => request()->drug_allergies,
             'current_diet' => request()->current_diet,
             'current_medication'=> request()->current_medication,
-            // 'birthdate'=> request()->birthdate,
-            // 'color'=> request()->color,
-            // 'previous_problems'=> request()->color,
-            // 'drug_allergies'=> request()->color,
+            'weight'=>request()->weight,
+            'gender'=> request()->gender,
+      
+           
         ]);
         // Pet::create($request->all());
 
