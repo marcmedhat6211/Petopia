@@ -28,10 +28,6 @@ export class TokenService {
   }
 
   remove(){
-    // localStorage.removeItem('token')
-    // localStorage.removeItem('email')
-    // localStorage.removeItem('password')
-    // localStorage.removeItem('service_name')
     localStorage.clear();
   }
 
@@ -66,7 +62,7 @@ export class TokenService {
     }
     else
     {
-      return jwt_decode(token);
+      return jwt_decode(token,{header:true});
     }
   }
 

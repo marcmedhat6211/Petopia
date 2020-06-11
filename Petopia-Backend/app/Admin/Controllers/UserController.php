@@ -9,6 +9,7 @@ use Encore\Admin\Form\Field\Nullable;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
 use Illuminate\Support\Facades\Hash;
+use Encore\Admin\Auth\Permission;
 
 
 class UserController extends AdminController
@@ -46,6 +47,13 @@ class UserController extends AdminController
             $filter->like('name', 'name');
         
         });
+
+        // $grid->actions(function($actions){
+        //     if(!Admin::user()->can('delete-user'))
+        //     {
+        //         $action->disableDelete();
+        //     }
+        // });
 
         return $grid;
     }
