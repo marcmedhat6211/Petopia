@@ -11,33 +11,9 @@
                                 <input class="input--style-4" type="text" name="petName" #petName="ngModel" ngModel required minlength="3">
                             </div>
                         </div>
-                        <div class="row row-space">
-                            <div class="col-6">
-                                <div class="input-group">
-                                    <label class="label">Species
-                                    </label>
-                                    <label for="true">Cat</label><br>
-                                    <input type="radio" id="true" name="species" value="cat" ngModel>
-                                    <label for="false">Dog</label><br>
-                                    <input type="radio" id="false" name="species" value="dog" ngModel >
-                                    
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row row-space">
-                            <div class="col-6">
-                                <div class="input-group">
-                                    <label class="label">Gender
-                                    </label>
-                                    <label for="true">Male</label><br>
-                                    <input type="radio" id="true" name="gender" value="male" ngModel>
-                                    <label for="false">Female</label><br>
-                                    <input type="radio" id="false" name="gender" value="female" ngModel>
-                                    
-                                </div>
-                            </div>
-                        </div>
-
+                        <!-- <div class="row row-space"> -->
+                           
+                       
                         <div class="col-6">
                             <div class="input-group">
                                 <label class="label">Breed</label>
@@ -45,6 +21,7 @@
                             </div>
                         </div>     
                     </div>
+
                     <div class="row row-space">
                         <div class="col-6">
                             <div class="input-group">
@@ -52,8 +29,7 @@
                                 <input class="input--style-4" type="number" name="age" #age="ngModel" ngModel required>
                             </div>
                         </div>
-                    </div>
-                    <div class="row row-space">
+                    
                         <div class="col-6">
                             <div class="input-group">
                                 <label class="label">weight</label>
@@ -63,15 +39,7 @@
                     </div>
 
 
-                    
-                    <!-- <div class="row row-space">
-                        <div class="col-6">
-                            <div class="input-group">
-                                <label class="label">Birtday</label>
-                                <input class="input--style-4" type="date" name="birthday" #petName="ngModel" ngModel required minlength="3">
-                            </div>
-                        </div>
-                    </div> -->
+        
                     <div class="row row-space">
                         <div class="col-6">
                             <div class="input-group">
@@ -79,22 +47,8 @@
                                 <input class="input--style-4" type="text" name="color" #petName="ngModel" ngModel required minlength="3">
                             </div>
                         </div>
-                    </div>
-                    <div class="row row-space">
-                        <div class="col-6">
-                            <div class="input-group">
-                                <label class="label">Neutered</label><br>
-                                <div>
-                                <label for="true">Yes</label><br>
-                                <input type="radio" id="true" name="neutered" value="yes" ngModel>
-                                <label for="false">No</label><br>
-                                <input type="radio" id="false" name="neutered" value="no" ngModel>
-                                </div>
-                                <!-- <input class="input--style-4" type="text" name="neutered" #petName="ngModel" ngModel required minlength="3"> -->
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row row-space">
+                    
+        
                         <div class="col-6">
                             <div class="input-group">
                                 <label class="label">Previous problems
@@ -112,8 +66,7 @@
                                 <input class="input--style-4" type="text" name="allergies" #petName="ngModel" ngModel>
                             </div>
                         </div>
-                    </div>
-                    <div class="row row-space">
+                    
                         <div class="col-6">
                             <div class="input-group">
                                 <label class="label">Current Diet
@@ -130,13 +83,120 @@
                                 <input class="input--style-4" type="text" name="meds" #petName="ngModel" ngModel>
                             </div>
                         </div>
+                    
+                    <!-- <div class="col-6">
+                        <label class="label">Species</label>
+
+                        <div class="input-group" style="white-space: nowrap;">
+
+                           <div>
+                            <label style="display: inline-block;" for="true">Cat</label>
+                           </div>
+
+                           <div>
+                               <input style="display: inline-block;" type="radio" id="true" name="species" value="cat" ngModel>
+                           </div>
+                           
+                           <div>
+                               <label style="display: inline-block;" for="false">Dog</label>
+                           </div>
+                           <div>
+                               <input style="display: inline-block;" type="radio" id="false" name="species" value="dog" ngModel >
+
+                           </div>
+                            
+                        </div>
                     </div>
-               
+                    </div> -->
+
+
+                        <div class="col-6">
+                            <label class="label">Species
+                            </label>
+                            <div class="input-group">
+                                <div style="white-space: nowrap;">
+                                    <label for="true">Dog</label>
+                                    <input type="radio" id="true" name="species" value="dog" ngModel>
+
+                                </div>
+                                <br>
+
+                                <div  style="white-space: nowrap; margin-left: 40px;">
+                                    <label for="false">Cat</label>
+                                <input type="radio" id="false" name="species" value="cat" ngModel>
+                                
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+                    <div class="row row-space">
+                        <div class="col-6">
+                            <label class="label">Gender
+                            </label>
+                            <div class="input-group">
+                                <div style="white-space: nowrap;">
+                                    <label for="true">Male</label>
+                                    <input type="radio" id="true" name="gender" value="male" ngModel>
+
+                                </div>
+                                <br>
+
+                                <div  style="white-space: nowrap; margin-left: 40px;">
+                                    <label for="false">Female</label>
+                                <input type="radio" id="false" name="gender" value="female" ngModel>
+                                
+                                </div>
+                                
+                            </div>
+                        </div>
+
+                        <div class="col-6">
+                            <label class="label">Neutered
+                            </label>
+                            <div class="input-group">
+                                <div style="white-space: nowrap;">
+                                    <label for="true">Yes</label>
+                                    <input type="radio" id="true" name="neutered" value="yes" ngModel>
+
+                                </div>
+                                <br>
+
+                                <div  style="white-space: nowrap; margin-left: 40px;">
+                                    <label for="false">No</label>
+                                <input type="radio" id="false" name="neutered" value="no" ngModel>
+                                
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                    <!-- <div class="row row-space">
+                        <div class="col-6">
+                            <div >
+                                <label class="radio-inline">Neutered</label><br>
+                                <div>
+                                <label for="true">Yes</label><br>
+                                <input type="radio" id="true" name="neutered" value="yes" ngModel>
+                                <label for="false">No</label><br>
+                                <input type="radio" id="false" name="neutered" value="no" ngModel>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
 
                     <div class="p-t-15 text-center">
-                        <button class="btn btn-primary btn-lg"  type="submit" [disabled]="!petRegistrationForm.valid">Add pet</button>
-
+                        <button class="btn btn-primary btn-lg" (click)="showMessageSoon()"  type="submit" [disabled]="!petRegistrationForm.valid||savePetSuccess">Add pet</button>
+                        <p *ngIf="savePetSuccess" style="color: green; font-size: large;">pet added successfully, <a [routerLink]="'/home'"> Return to home</a></p>
                     </div>
+
                     <p *ngIf="savePetError">Something wrong happened.Please try again later</p>
                 </form>
             </div>
