@@ -54,7 +54,19 @@ export class TokenService {
   //   return JSON.parse(atob(payload))
   // }
 
-  decode(token) 
+  // decode(token) 
+  // {
+  //   if(!token)
+  //   {
+  //     return false;
+  //   }
+  //   else
+  //   {
+  //     return jwt_decode(token);
+  //   }
+  // }
+
+  decode(token)
   {
     if(!token)
     {
@@ -62,7 +74,7 @@ export class TokenService {
     }
     else
     {
-      return jwt_decode(token,{header:true});
+      return jwt_decode(token, {header:true});
     }
   }
 
