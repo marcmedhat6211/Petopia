@@ -42,5 +42,7 @@ Route::group([
 
     /*CONSULTATION ROUTES*/
     $router->resource('consultations', ConsultationController::class);
+    
+
 
 });

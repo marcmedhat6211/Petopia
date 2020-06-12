@@ -30,10 +30,15 @@ Route::group([
     Route::post('/pet/add','API\PetsController@add');
     Route::post('/boardings', 'API\BoardingController@add');
     Route::delete('reservations/{id}', 'API\ReservationController@destroy');
+   
 });
 
 Route::get('/services', 'API\ServiceController@index');
 Route::get('/services/{service}', 'API\ServiceController@show');
+
+Route::apiResources([
+    'reservationcalendar' => 'API\ReservationController'
+]);
 
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $request->user();

@@ -9,9 +9,23 @@ use App\User;
 use App\Pet;
 use App\Service;
 use App\Http\Requests\ReservationRequest;
+use App\Http\Resources\ReservationResource;
+
 
 class ReservationController extends Controller
 {
+
+
+    public function index(){
+       
+        $data= ReservationResource::collection(
+            Reservation::all()
+        );
+        
+        return response()->json($data);
+    }
+   
+    
     /**
      * STORE NEW RESERVATION FROM CLIENT 
      * @param ReservationRequest $request
