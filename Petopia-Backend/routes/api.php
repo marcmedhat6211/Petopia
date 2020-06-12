@@ -36,9 +36,6 @@ Route::group([
 Route::get('/services', 'API\ServiceController@index');
 Route::get('/services/{service}', 'API\ServiceController@show');
 
-Route::apiResources([
-    'reservationcalendar' => 'API\ReservationController'
-]);
 
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $request->user();

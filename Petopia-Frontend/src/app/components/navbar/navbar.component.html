@@ -21,8 +21,8 @@
                                 <ul id="navigation">
                                     <li><a [routerLink]="'/home'">home</a></li>
                                     <li ><a  [routerLink]="'/login'" *ngIf="!loggedIn">Login</a></li>
-                                    <li style="right: 15px;"><a href="#*" (click)="logout($event)" *ngIf="loggedIn">Logout</a></li>
-                                    <li ><a href="#*" [routerLink]="'/pet'" *ngIf="loggedIn">Add Pet</a></li> 
+                                    <li style="right: 15px;"><a href="#" (click)="logout($event)" *ngIf="loggedIn">Logout</a></li>
+                                    <li ><a href="#" [routerLink]="'/pet'" *ngIf="loggedIn">Add Pet</a></li> 
                                 </ul>
                             </nav>
                         </div>

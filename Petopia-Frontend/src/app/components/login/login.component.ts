@@ -45,7 +45,7 @@ export class LoginComponent  implements OnInit{
     // this.current_user = data.user
     // console.log(data);
     // console.log(this.current_user);
-    localStorage.setItem('user_name',data.user)
+    // localStorage.setItem('user_name',data.user)
   }
 
   ngOnInit(): void{
