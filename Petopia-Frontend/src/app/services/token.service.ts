@@ -50,21 +50,18 @@ export class TokenService {
   }
 
 
-  // decode(payload){
-  //   return JSON.parse(atob(payload))
-  // }
-
-  // decode(token) 
-  // {
-  //   if(!token)
-  //   {
-  //     return false;
-  //   }
-  //   else
-  //   {
-  //     return jwt_decode(token);
-  //   }
-  // }
+  
+  getTokenPayload(token) 
+  {
+    if(!token)
+    {
+      return false;
+    }
+    else
+    {
+      return jwt_decode(token);
+    }
+  }
 
   decode(token)
   {

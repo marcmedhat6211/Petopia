@@ -45,7 +45,7 @@ export class PetComponent implements OnInit {
   
     var token = this.tokenService.get();
   
-              let decoded = this.tokenService.decode(token);
+              let decoded = this.tokenService.getTokenPayload(token);
               console.log({decoded})
               this.LoggedInUserId = decoded.sub;
     const pet = {
