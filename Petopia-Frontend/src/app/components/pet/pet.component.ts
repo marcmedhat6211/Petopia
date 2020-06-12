@@ -20,6 +20,8 @@ export class PetComponent implements OnInit {
   LoggedInUserId: string;
   message:string;
   savePetError:boolean= false;
+  savePetSuccess:boolean= false;
+
 
   constructor(private petService: PetsService,private http:HttpClient,private tokenService:TokenService) { 
   }
@@ -67,11 +69,15 @@ export class PetComponent implements OnInit {
     this.addPet(pet);
   }
 
+ 
+
+  
 
   addPet(pet) {
     this.petService.registerPet(pet)
     .subscribe((data: any[])=>{
       console.log(data);
+      this.savePetSuccess=true;
     }, error => {
       this.savePetError = true;
       console.log(error)

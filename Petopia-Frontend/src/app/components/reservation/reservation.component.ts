@@ -54,7 +54,6 @@ export class ReservationComponent implements OnInit{
               });          
     }
         
-    // reservationService: ReservationService;
     service_name = localStorage.getItem('service_name');
     user_name = localStorage.getItem('user_name');
     my_token = this.token.get();
@@ -69,26 +68,21 @@ export class ReservationComponent implements OnInit{
 
     public error= null ;
     onSubmit(){
-      // console.log(this.form);
       this.athentication.reservation(this.form).subscribe(
         (data)=>this.handleResponse(data),
-        // (data)=>console.log(data),
         error=>this.handleError(error),
       )
-      
-      // localStorage.setItem('reservation_id', data.reservation_id)
       localStorage.setItem('pet_name', this.form.pet_name);
-      
+
       if(this.service_name == 'Boarding')
       {
         this.router.navigateByUrl('/boarding');
       }
       else
       {
+        alert('Reservation made successfully');
         this.router.navigateByUrl('/home');
-        // console.log('helloooooooo');
       }
-      // alert('Reservation made successfully');
     }
 
     handleError(error){
