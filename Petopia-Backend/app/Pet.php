@@ -12,6 +12,8 @@ class Pet extends Model
         'breed',
         'color',
         'age',
+        'gender',
+        'species',
         'weight',
         'neutered',
         'previous_problems',

@@ -13,23 +13,23 @@ class HomeController extends Controller
     public function index(Content $content)
     {
 
-        return $content
-            ->title('Dashboard')
-            ->description('<h4> Admin Panel</h4>')
-            ->header('Petopia')
+        return $content ;
+            // ->title('Dashboard');
+            // ->description('<h4> Admin Panel</h4>')
+            // ->header('Petopia');
             
         
 
 
-           ->row(function (Row $row) {
+        //    ->row(function (Row $row) {
 
-            $row->column(4, '');
+        //     $row->column(4, '');
         
-            $row->column(8, function (Column $column) {
-                $column->row('<h1>Petopia</h1>');
+        //     $row->column(8, function (Column $column) {
+        //         $column->row('<h1>Petopia</h1>');
               
-            });
-        });
+        //     });
+        // });
 
           //  ->row(function (Row $row) {
 

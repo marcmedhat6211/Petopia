@@ -31,6 +31,8 @@ export class BoardingComponent implements OnInit {
       (data)=>this.handleResponse(data),
       error=>this.handleError(error)
     )
+    alert('Reservation made successfully');
+    this.router.navigateByUrl('/home');
   }
 
   onCancel(){
@@ -39,7 +41,7 @@ export class BoardingComponent implements OnInit {
       (data)=>this.handleResponse(data)
     )  
     alert('Reservation canceled');
-    this.router.navigateByUrl('/home')
+    this.router.navigateByUrl('/home');
   }
 
   handleError(error){
@@ -48,6 +50,5 @@ export class BoardingComponent implements OnInit {
 
   handleResponse(data){
     this.token.handle(data.access_token)
-    this.router.navigateByUrl('/home');
   }
 }

@@ -28,10 +28,6 @@ export class TokenService {
   }
 
   remove(){
-    // localStorage.removeItem('token')
-    // localStorage.removeItem('email')
-    // localStorage.removeItem('password')
-    // localStorage.removeItem('service_name')
     localStorage.clear();
   }
 
@@ -58,7 +54,19 @@ export class TokenService {
   //   return JSON.parse(atob(payload))
   // }
 
-  decode(token) 
+  // decode(token) 
+  // {
+  //   if(!token)
+  //   {
+  //     return false;
+  //   }
+  //   else
+  //   {
+  //     return jwt_decode(token);
+  //   }
+  // }
+
+  decode(token)
   {
     if(!token)
     {
@@ -66,7 +74,7 @@ export class TokenService {
     }
     else
     {
-      return jwt_decode(token);
+      return jwt_decode(token, {header:true});
     }
   }
 
