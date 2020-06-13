@@ -16,15 +16,6 @@ class ReservationController extends Controller
 {
 
 
-    public function index(){
-       
-        $data= ReservationResource::collection(
-            Reservation::all()
-        );
-        
-        return response()->json($data);
-    }
-   
     
     /**
      * STORE NEW RESERVATION FROM CLIENT 
