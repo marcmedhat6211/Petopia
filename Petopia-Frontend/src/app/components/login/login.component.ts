@@ -25,7 +25,7 @@ export class LoginComponent  implements OnInit{
   
   onSubmit(){
     this.athentication.signin(this.form).subscribe(
-      (data)=>this.handleResponse(data),
+      (data:any)=> this.handleResponse(data),
       error=>this.handleError(error)
     );
       
@@ -45,10 +45,11 @@ export class LoginComponent  implements OnInit{
     // this.current_user = data.user
     // console.log(data);
     // console.log(this.current_user);
-    // localStorage.setItem('user_name',data.user)
+   // localStorage.setItem('user_name',data.user)
   }
 
   ngOnInit(): void{
+       
   }
 
   
