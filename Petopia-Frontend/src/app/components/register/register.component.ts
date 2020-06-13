@@ -28,13 +28,12 @@ export class RegisterComponent  implements OnInit{
   }
   public error=[]
   onSubmit(){
-    console.log(this.form);
     
-   this.athentication.register(this.form).subscribe(
-     
+    this.athentication.register(this.form).subscribe(
       (data)=>this.handleResponse(data),
       error=>this.handleError(error)
     )
+
   }
 
 
@@ -44,6 +43,16 @@ export class RegisterComponent  implements OnInit{
 
   handleResponse(data){
     this.token.handle(data.access_token)
-    this.router.navigateByUrl('/home')
+
+    this.router.navigateByUrl('/home');
+
+  }
+
+  ngAfterViewInit() {
+    let top = document.getElementById('top');
+    if(top !=null) {
+      top.scrollIntoView();
+      top=null
+    }
   }
 }

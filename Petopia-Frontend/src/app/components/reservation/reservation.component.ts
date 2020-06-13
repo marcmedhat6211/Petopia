@@ -1,7 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Injectable, Injector } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { User } from '../../User';
+import { HttpClient } from '@angular/common/http';
 import { Service } from '../../Service';
 import { Router,ActivatedRoute } from '@angular/router';
 import { AthenticationService } from 'src/app/services/athentication.service';
@@ -9,6 +8,8 @@ import { TokenService } from 'src/app/services/token.service';
 import { reservationService } from 'src/app/reservationService';
 import { NgForm } from '@angular/forms';
 import { ReservationService } from 'src/app/services/reservation.service';
+import { PetsService } from 'src/app/services/pets.service';
+import { Pet } from 'src/app/Pet';
 
 @Component({
   selector: 'app-reservation',
@@ -17,80 +18,78 @@ import { ReservationService } from 'src/app/services/reservation.service';
 })
 
 export class ReservationComponent implements OnInit{
-
-  body = {
-      "email": atob(window.localStorage.getItem('email')),
-      "password": atob(window.localStorage.getItem('password')),
-    };
     
-    constructor(private http: HttpClient, private route: ActivatedRoute,private router: Router, private athentication:AthenticationService, private token :TokenService)
+    constructor(private http: HttpClient, private route: ActivatedRoute,private router: Router, private athentication:AthenticationService, private token :TokenService,private pets : PetsService)
     {}
     
     service: Service;
-    user: User;
+    pet: Pet;
 
     ngOnInit(): void 
     {
       var id = window.location.pathname.split("/").pop();
-      var token = window.localStorage.getItem('token');
-      console.log(`Bearer ${token}`);
       
-      // me7tag an2el dh f service bara wa7do
-      // http interceptor (bey3ady 3aleh kol el http requests el ana bab3atha)
-      
-      this.http.post<User>('http://localhost:8000/api/me', this.body,{
-          headers : new HttpHeaders({
-              'Accept' : 'application/json',
-              'Authorization': `Bearer ${token}`,
-            })
-          }).subscribe(data => {
-              this.user = data;
-              console.log(data);
-            });
-            
-            this.http.get<Service>('http://localhost:8000/api/services/'+id).subscribe(data => {
-                console.log(data);
-                this.service = data;
-              });          
-    }
+      this.pets.getPets().subscribe(
+        (data: any)=>{
+          console.log(data);
+          this.pet = data.data;
+        });
         
-    service_name = localStorage.getItem('service_name');
-    user_name = localStorage.getItem('user_name');
-    my_token = this.token.get();
+        this.http.get('http://localhost:8000/api/services/'+id).subscribe(
+          (data: any) => {
+            console.log(data);
+            this.service = data.data;
+          }); 
+        }
+           
+      service_name =  localStorage.getItem('service_name');
+      user_name = localStorage.getItem('user_name');
+      my_token = this.token.get();
+      decoded = this.token.getTokenPayload(this.my_token);
+      client_id = this.decoded.sub;
+      public error= null ;
             
-            
-    public form={
-      service_name: this.service_name,
-      client_name: this.user_name,
-      date:null,
-      pet_name:null,
-    }
-
-    public error= null ;
-    onSubmit(){
-      this.athentication.reservation(this.form).subscribe(
-        (data)=>this.handleResponse(data),
-        error=>this.handleError(error),
-      )
-      localStorage.setItem('pet_name', this.form.pet_name);
-
-      if(this.service_name == 'Boarding')
-      {
-        this.router.navigateByUrl('/boarding');
+      public form={
+        service_name: this.service_name,
+        client_id: this.client_id,
+        date:null,
+        pet_name:null,
       }
-      else
-      {
-        alert('Reservation made successfully');
-        this.router.navigateByUrl('/home');
+
+      onSubmit(){
+        console.log(this.form);
+        this.athentication.reservation(this.form).subscribe(
+          (data)=>this.handleResponse(data),
+          error=>this.handleError(error),
+        )
+        localStorage.setItem('pet_name', this.form.pet_name);
+        localStorage.setItem('reservation_date', this.form.date);
+
+        if(this.service_name == 'Boarding')
+        {
+          this.router.navigateByUrl('/boarding');
+        }
+        else
+        {
+          alert('Reservation made successfully');
+          this.router.navigateByUrl('/home');
+        }
       }
-    }
 
-    handleError(error){
-      this.error=error.error.message
-    }
+      handleError(error){
+        this.error=error.error.message
+      }
 
-    handleResponse(data){
-      this.token.handle(this.my_token)
-      localStorage.setItem('reservation_id', data.reservation_id)
-    }
+      handleResponse(data){
+        this.token.handle(this.my_token)
+        localStorage.setItem('reservation_id', data.reservation_id)
+      }
+
+      ngAfterViewInit() {
+        let top = document.getElementById('top');
+        if(top !=null) {
+          top.scrollIntoView();
+          top=null
+        }
+      }
 }

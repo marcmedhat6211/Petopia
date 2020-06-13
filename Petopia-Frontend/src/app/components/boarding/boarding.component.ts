@@ -11,6 +11,8 @@ import { id } from 'date-fns/locale';
 })
 export class BoardingComponent implements OnInit {
 
+  reservation_date = localStorage.getItem('reservation_date');
+
   constructor(private athentication:AthenticationService, private router: Router, private token :TokenService) { }
 
   ngOnInit(): void {
@@ -24,21 +26,34 @@ export class BoardingComponent implements OnInit {
   }
 
   public error= null ;
+  // diffTime = Math.abs((this.form.end_date) - (this.reservation_date));
+  // diffDays = Math.ceil(this.diffTime / (1000 * 60 * 60 * 24));
+
 
   onSubmit(){
-  console.log(this.form);
-    this.athentication.boarding(this.form).subscribe(
-      (data)=>this.handleResponse(data),
-      error=>this.handleError(error)
-    )
-    alert('Reservation made successfully');
-    this.router.navigateByUrl('/home');
+      if(this.form.end_date > this.reservation_date)
+      {
+          this.athentication.boarding(this.form).subscribe(
+            (data)=>console.log(data),
+            error=>this.handleError(error)
+          )
+          alert('Reservation made successfully');
+          this.router.navigateByUrl('/home');
+      }
+      // if(((this.form.end_date) - (this.reservation_date)) / (1000 * 60 * 60 * 24) < 1)
+      // {
+
+      // }
+      else
+      {
+        alert('End date must be bigger than Reservation date');
+      }
   }
 
   onCancel(){
     var id = +(localStorage.getItem('reservation_id'))
     this.athentication.deleteReservation(id).subscribe(
-      (data)=>this.handleResponse(data)
+      (data)=>console.log(data)
     )  
     alert('Reservation canceled');
     this.router.navigateByUrl('/home');
@@ -50,5 +65,13 @@ export class BoardingComponent implements OnInit {
 
   handleResponse(data){
     this.token.handle(data.access_token)
+  }
+
+  ngAfterViewInit() {
+    let top = document.getElementById('top');
+    if(top !=null) {
+      top.scrollIntoView();
+      top=null
+    }
   }
 }
