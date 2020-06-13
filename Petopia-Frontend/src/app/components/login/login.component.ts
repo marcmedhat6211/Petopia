@@ -21,7 +21,7 @@ export class LoginComponent  implements OnInit{
   
   onSubmit(){
     this.athentication.signin(this.form).subscribe(
-      (data:any)=> this.handleResponse(data),
+      (data)=> this.handleResponse(data),
       error=>this.handleError(error)
     );
   }

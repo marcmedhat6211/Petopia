@@ -29,6 +29,8 @@ export class SingleComponent implements OnInit {
     this.http.get('http://localhost:8000/api/services/'+idInteger).subscribe((data: any) => {
       this.service = data.data;
     });  
+
+
   }
    
   // hack : scroll to top after rendering component

@@ -18,15 +18,15 @@ export class HomeComponent implements OnInit {
   ngOnInit() 
   {
     this.http.get('http://localhost:8000/api/services').subscribe((data:any) => {
-      this.service = data.data;   
+      this.service = data.data;
     });
 
-    if (!localStorage.getItem('foo')) { 
+    if(!localStorage.getItem('foo')) { 
       localStorage.setItem('foo', 'no reload') 
       location.reload() 
-    } else {
+      } else {
       localStorage.removeItem('foo') 
-    }
+      }
   }
   
     // hack : scroll to top after rendering component
