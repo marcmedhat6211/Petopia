@@ -31,4 +31,12 @@ export class SingleComponent implements OnInit {
     });  
   }
    
+  // hack : scroll to top after rendering component
+  ngAfterViewInit() {
+      let top = document.getElementById('top');
+      if(top !=null) {
+        top.scrollIntoView();
+        top=null
+      }
+  }
 }

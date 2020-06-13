@@ -16,8 +16,6 @@ import { FooterComponent } from './components/footer/footer.component';
 import { RouterModule ,Routes} from '@angular/router';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { UserService } from './shared/user.service';
-import { RequestResetComponent } from './components/password/request-reset/request-reset.component';
-import { ResponeResetComponent } from './components/password/respone-reset/respone-reset.component';
 import { ReservationComponent } from './components/reservation/reservation.component';
 import { AthenticationService } from './services/athentication.service';
 import { TokenService } from './services/token.service';
@@ -48,9 +46,7 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
     
     FooterComponent,
     
-    RequestResetComponent,
     
-    ResponeResetComponent,
     ReservationComponent,
     PetComponent,
     BoardingComponent

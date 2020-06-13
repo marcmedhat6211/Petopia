@@ -83,32 +83,6 @@
                                 <input class="input--style-4" type="text" name="meds" #petName="ngModel" ngModel>
                             </div>
                         </div>
-                    
-                    <!-- <div class="col-6">
-                        <label class="label">Species</label>
-
-                        <div class="input-group" style="white-space: nowrap;">
-
-                           <div>
-                            <label style="display: inline-block;" for="true">Cat</label>
-                           </div>
-
-                           <div>
-                               <input style="display: inline-block;" type="radio" id="true" name="species" value="cat" ngModel>
-                           </div>
-                           
-                           <div>
-                               <label style="display: inline-block;" for="false">Dog</label>
-                           </div>
-                           <div>
-                               <input style="display: inline-block;" type="radio" id="false" name="species" value="dog" ngModel >
-
-                           </div>
-                            
-                        </div>
-                    </div>
-                    </div> -->
-
 
                         <div class="col-6">
                             <label class="label">Species
@@ -178,27 +152,30 @@
                     </div>
                     
 
-                    <!-- <div class="row row-space">
-                        <div class="col-6">
-                            <div >
-                                <label class="radio-inline">Neutered</label><br>
-                                <div>
-                                <label for="true">Yes</label><br>
-                                <input type="radio" id="true" name="neutered" value="yes" ngModel>
-                                <label for="false">No</label><br>
-                                <input type="radio" id="false" name="neutered" value="no" ngModel>
-                                </div>
+                    
+                    <div class="container">
+                        <div class="row justify-content-md-center">
+                            <!-- <div class="p-t-15 text-center"> -->
+                                <div class="col col-lg-1">
+                                <button class="btn btn-primary btn-lg" (click)="showMessageSoon()"  type="submit" [disabled]="!petRegistrationForm.valid||savePetSuccess">Add pet</button>
+                                <p *ngIf="savePetSuccess" style="color: green; font-size: large;">pet added successfully, <a [routerLink]="'/home'"> Return to home</a></p>
+                            </div>
+                            <div class="col-md-3">
+                
+                              </div>
+                            <div class="col col-lg-2">
+                                <button *ngIf="!savePetSuccess" class="btn btn-primary btn-lg" [routerLink]="'/home'"  type="submit" >Cancel</button>
                             </div>
                         </div>
-                    </div> -->
-
-                    <div class="p-t-15 text-center">
-                        <button class="btn btn-primary btn-lg" (click)="showMessageSoon()"  type="submit" [disabled]="!petRegistrationForm.valid||savePetSuccess">Add pet</button>
-                        <p *ngIf="savePetSuccess" style="color: green; font-size: large;">pet added successfully, <a [routerLink]="'/home'"> Return to home</a></p>
                     </div>
+
+                
+                       
 
                     <p *ngIf="savePetError">Something wrong happened.Please try again later</p>
                 </form>
+
+                <!-- back button -->
             </div>
         </div>
     </div>
