@@ -1,3 +1,4 @@
+
 <div class="header-area ">
 
     <!-- start of navbar -->
@@ -20,9 +21,9 @@
                             <nav>
                                 <ul id="navigation">
                                     <li><a [routerLink]="'/home'">home</a></li>
-                                    <li ><a  [routerLink]="'/login'" *ngIf="!loggedIn" href="#">Login</a></li>
-                                    <li style="right: 15px;"><a  (click)="logout($event)" *ngIf="loggedIn" href="#">Logout</a></li>
-                                    <li ><a  [routerLink]="'/pet'" *ngIf="loggedIn" href="#">Add Pet</a></li> 
+                                    <li ><a href="#"  [routerLink]="'/login'" *ngIf="!loggedIn" >Login</a></li>
+                                    <li style="right: 15px;"><a href="#"  (click)="logout($event)" *ngIf="loggedIn" >Logout</a></li>
+                                    <li ><a  href="#" [routerLink]="'/pet'" *ngIf="loggedIn" >Add Pet</a></li> 
                                 </ul>
                             </nav>
                         </div>

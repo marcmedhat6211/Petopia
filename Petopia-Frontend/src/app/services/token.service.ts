@@ -74,6 +74,8 @@ export class TokenService {
       return jwt_decode(token, {header:true});
     }
   }
+  
+  
 
   loggedIn()
   {

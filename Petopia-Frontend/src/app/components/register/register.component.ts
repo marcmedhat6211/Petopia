@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { AthenticationService } from 'src/app/services/athentication.service';
 import { TokenService } from 'src/app/services/token.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -11,7 +12,7 @@ import { TokenService } from 'src/app/services/token.service';
 })
 export class RegisterComponent  implements OnInit{
   
-  constructor(private athentication:AthenticationService,private token :TokenService,private router:Router) { }
+  constructor(private athentication:AthenticationService,private token :TokenService,private router:Router,private auth:AuthService) { }
 
   ngOnInit(): void {
   }
@@ -29,7 +30,7 @@ export class RegisterComponent  implements OnInit{
   public error=[]
   onSubmit(){
     
-    this.athentication.register(this.form).subscribe(
+    this.athentication.signUp(this.form).subscribe(
       (data)=>this.handleResponse(data),
       error=>this.handleError(error)
     )
@@ -43,8 +44,8 @@ export class RegisterComponent  implements OnInit{
 
   handleResponse(data){
     this.token.handle(data.access_token)
-
-    this.router.navigateByUrl('/home');
+    this.auth.changeAuthStatus(true)
+    this.router.navigateByUrl('/home')
 
   }
 

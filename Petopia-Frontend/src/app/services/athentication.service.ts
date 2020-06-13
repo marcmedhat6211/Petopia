@@ -12,7 +12,7 @@ export class AthenticationService {
   constructor(private http:HttpClient, private token :TokenService) { }
 
 
-  register(data){
+  signUp(data){
     return this.http.post(`${this.baseUrl}/signup`,data)
   }
 

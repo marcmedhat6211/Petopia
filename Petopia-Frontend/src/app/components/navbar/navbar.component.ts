@@ -10,7 +10,7 @@ import { TokenService } from 'src/app/services/token.service';
 })
 export class NavbarComponent implements OnInit {
   
-  public loggedIn :boolean
+  public loggedIn :boolean;
   constructor(private auth :AuthService ,private router:Router,private token:TokenService) { }
  
   ngOnInit(){
@@ -23,5 +23,8 @@ export class NavbarComponent implements OnInit {
     this.auth.changeAuthStatus(false)
     this.router.navigateByUrl('/home')
   }
+
+ 
+  
 
 }

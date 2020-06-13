@@ -22,12 +22,12 @@ export class HomeComponent implements OnInit {
       
     }); 
 
-    if (!localStorage.getItem('foo')) { 
-      localStorage.setItem('foo', 'no reload') 
-      location.reload() 
-      } else {
-      localStorage.removeItem('foo') 
-      } 
+    // if (!localStorage.getItem('foo')) { 
+    //   localStorage.setItem('foo', 'no reload') 
+    //   location.reload() 
+    //   } else {
+    //   localStorage.removeItem('foo') 
+    //   } 
   }
   
     // hack : scroll to top after rendering component
