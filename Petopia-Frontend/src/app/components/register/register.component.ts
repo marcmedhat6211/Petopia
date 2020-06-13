@@ -30,7 +30,6 @@ export class RegisterComponent  implements OnInit{
   onSubmit(){
     console.log(this.form);
     this.athentication.register(this.form).subscribe(
-     
       (data)=>this.handleResponse(data),
       error=>this.handleError(error)
     )

@@ -12,10 +12,11 @@ import { id } from 'date-fns/locale';
 export class BoardingComponent implements OnInit {
 
   reservation_date = localStorage.getItem('reservation_date');
-
+  
   constructor(private athentication:AthenticationService, private router: Router, private token :TokenService) { }
-
+  
   ngOnInit(): void {
+    // console.log(this.reservation_date);
   }
 
   public form={
@@ -26,9 +27,15 @@ export class BoardingComponent implements OnInit {
   }
 
   public error= null ;
-  // diffTime = Math.abs((this.form.end_date) - (this.reservation_date));
-  // diffDays = Math.ceil(this.diffTime / (1000 * 60 * 60 * 24));
 
+  dateCheck(date1, date2)
+  {
+    date1 = new Date(date1);
+    date2 = new Date(date2);
+    var diffTime = Math.abs(date2 - date1);
+    var diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    return diffDays;
+  }
 
   onSubmit(){
       if(this.form.end_date > this.reservation_date)
@@ -40,10 +47,10 @@ export class BoardingComponent implements OnInit {
           alert('Reservation made successfully');
           this.router.navigateByUrl('/home');
       }
-      // if(((this.form.end_date) - (this.reservation_date)) / (1000 * 60 * 60 * 24) < 1)
-      // {
-
-      // }
+      else if((this.dateCheck(this.reservation_date, this.form.end_date)) < 1)
+      {
+        alert('Pet has to stay with us at least one night');
+      }
       else
       {
         alert('End date must be bigger than Reservation date');
