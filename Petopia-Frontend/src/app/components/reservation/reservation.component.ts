@@ -56,23 +56,44 @@ export class ReservationComponent implements OnInit{
         pet_name:null,
       }
 
-      onSubmit(){
-        console.log(this.form);
-        this.athentication.reservation(this.form).subscribe(
-          (data)=>this.handleResponse(data),
-          error=>this.handleError(error),
-        )
-        localStorage.setItem('pet_name', this.form.pet_name);
-        localStorage.setItem('reservation_date', this.form.date);
-
-        if(this.service_name == 'Boarding')
+      currentDateCheck(date)
+      {
+        var reservationDate = new Date(date);
+        var now = new Date();
+        if(reservationDate < now)
         {
-          this.router.navigateByUrl('/boarding');
+          return false;
         }
         else
         {
-          alert('Reservation made successfully');
-          this.router.navigateByUrl('/home');
+          return true;
+        }
+      }
+
+      onSubmit(){
+        if(this.currentDateCheck(this.form.date))
+        {
+          console.log(this.form);
+          this.athentication.reservation(this.form).subscribe(
+            (data)=>this.handleResponse(data),
+            error=>this.handleError(error),
+          )
+          localStorage.setItem('pet_name', this.form.pet_name);
+          localStorage.setItem('reservation_date', this.form.date);
+
+          if(this.service_name == 'Boarding')
+          {
+            this.router.navigateByUrl('/boarding');
+          }
+          else
+          {
+            alert('Reservation made successfully');
+            this.router.navigateByUrl('/home');
+          }
+        }
+        else
+        {
+          alert('Reservation date can\'t be in the past');
         }
       }
 
