@@ -73,6 +73,7 @@ export class ReservationComponent implements OnInit{
         error=>this.handleError(error),
       )
       localStorage.setItem('pet_name', this.form.pet_name);
+      localStorage.setItem('reservation_date', this.form.date);
 
       if(this.service_name == 'Boarding')
       {

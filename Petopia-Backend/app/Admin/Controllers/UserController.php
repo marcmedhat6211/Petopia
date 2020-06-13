@@ -55,6 +55,8 @@ class UserController extends AdminController
         //     }
         // });
 
+        // !Admin::user()->cannot('delete-user');
+
         return $grid;
     }
 
@@ -101,5 +103,10 @@ class UserController extends AdminController
         $form->text('address', __('Address'))->rules('required');
 
         return $form;
+    }
+
+    public function delete()
+    {
+        Permission::check('delete-user');
     }
 }

@@ -11,6 +11,9 @@ import { id } from 'date-fns/locale';
 })
 export class BoardingComponent implements OnInit {
 
+  flag = 1;
+  reservation_date = localStorage.getItem('reservation_date');
+
   constructor(private athentication:AthenticationService, private router: Router, private token :TokenService) { }
 
   ngOnInit(): void {
@@ -24,15 +27,28 @@ export class BoardingComponent implements OnInit {
   }
 
   public error= null ;
+  // diffTime = Math.abs((this.form.end_date) - (this.reservation_date));
+  // diffDays = Math.ceil(this.diffTime / (1000 * 60 * 60 * 24));
+
 
   onSubmit(){
-  console.log(this.form);
-    this.athentication.boarding(this.form).subscribe(
-      (data)=>this.handleResponse(data),
-      error=>this.handleError(error)
-    )
-    alert('Reservation made successfully');
-    this.router.navigateByUrl('/home');
+      if(this.form.end_date > this.reservation_date)
+      {
+          this.athentication.boarding(this.form).subscribe(
+            (data)=>this.handleResponse(data),
+            error=>this.handleError(error)
+          )
+          alert('Reservation made successfully');
+          this.router.navigateByUrl('/home');
+      }
+      // if(((this.form.end_date) - (this.reservation_date)) / (1000 * 60 * 60 * 24) < 1)
+      // {
+
+      // }
+      else
+      {
+        alert('End date must be bigger than Reservation date');
+      }
   }
 
   onCancel(){
