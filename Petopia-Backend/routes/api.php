@@ -28,9 +28,9 @@ Route::group([
     Route::post('resetPassword','ChangePasswordController@process');
     Route::post('reservations','API\ReservationController@store');
     Route::post('/pet/add','API\PetsController@add');
+    Route::get('pets','API\PetsController@index');
     Route::post('/boardings', 'API\BoardingController@add');
     Route::delete('reservations/{id}', 'API\ReservationController@destroy');
-   
 });
 
 Route::get('/services', 'API\ServiceController@index');

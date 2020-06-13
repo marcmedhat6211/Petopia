@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Service } from '../../Service';
 import {Router,ActivatedRoute} from '@angular/router';
 import { Observable, Subject } from 'rxjs';
@@ -14,6 +14,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class SingleComponent implements OnInit {
   public loggedIn :boolean
   service: Service;
+
   constructor(private auth :AuthService ,private http: HttpClient, private route: ActivatedRoute,private router: Router){}
 
   ngOnInit(): void 
@@ -25,9 +26,8 @@ export class SingleComponent implements OnInit {
 
     this.auth.authStatus.subscribe(value=>this.loggedIn=value)
  
-    this.http.get<Service>('http://localhost:8000/api/services/'+idInteger).subscribe(data => {
-      console.log(data);
-      this.service = data;
+    this.http.get('http://localhost:8000/api/services/'+idInteger).subscribe((data: any) => {
+      this.service = data.data;
     });  
   }
    

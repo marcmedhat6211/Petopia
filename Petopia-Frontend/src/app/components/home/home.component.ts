@@ -15,14 +15,12 @@ export class HomeComponent implements OnInit {
 
   constructor(private http: HttpClient,private token:TokenService) {}
 
-  ngOnInit(): void 
+  ngOnInit() 
   {
     this.http.get('http://localhost:8000/api/services').subscribe((data:any) => {
       this.service = data.data;
-
-    });
-
-    
+      
+    }); 
   }
   
     // hack : scroll to top after rendering component

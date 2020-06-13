@@ -11,7 +11,6 @@ import { id } from 'date-fns/locale';
 })
 export class BoardingComponent implements OnInit {
 
-  flag = 1;
   reservation_date = localStorage.getItem('reservation_date');
 
   constructor(private athentication:AthenticationService, private router: Router, private token :TokenService) { }
@@ -35,7 +34,7 @@ export class BoardingComponent implements OnInit {
       if(this.form.end_date > this.reservation_date)
       {
           this.athentication.boarding(this.form).subscribe(
-            (data)=>this.handleResponse(data),
+            (data)=>console.log(data),
             error=>this.handleError(error)
           )
           alert('Reservation made successfully');
@@ -54,7 +53,7 @@ export class BoardingComponent implements OnInit {
   onCancel(){
     var id = +(localStorage.getItem('reservation_id'))
     this.athentication.deleteReservation(id).subscribe(
-      (data)=>this.handleResponse(data)
+      (data)=>console.log(data)
     )  
     alert('Reservation canceled');
     this.router.navigateByUrl('/home');
@@ -66,5 +65,13 @@ export class BoardingComponent implements OnInit {
 
   handleResponse(data){
     this.token.handle(data.access_token)
+  }
+
+  ngAfterViewInit() {
+    let top = document.getElementById('top');
+    if(top !=null) {
+      top.scrollIntoView();
+      top=null
+    }
   }
 }

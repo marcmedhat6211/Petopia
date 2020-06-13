@@ -23,6 +23,7 @@ class VerifyCsrfToken extends Middleware
         '/api/me',
         '/api/reservations',
         '/api/reservations/*',
-        '/api/boardings'
+        '/api/boardings',
+        '/api/pets'
     ];
 }
