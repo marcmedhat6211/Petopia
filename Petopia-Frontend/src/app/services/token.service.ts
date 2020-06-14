@@ -56,9 +56,7 @@ export class TokenService {
     if(!token)
     {
       return false;
-    }
-    else
-    {
+    }else{
       return jwt_decode(token);
     }
   }
@@ -68,9 +66,7 @@ export class TokenService {
     if(!token)
     {
       return false;
-    }
-    else
-    {
+    }else{
       return jwt_decode(token, {header:true});
     }
   }

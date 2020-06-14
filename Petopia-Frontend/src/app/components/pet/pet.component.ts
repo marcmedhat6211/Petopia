@@ -28,12 +28,7 @@ export class PetComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.petService.test()
-    .subscribe((data: any[])=>{
-      console.log(data);
-    }, error => {
-      console.log(error)
-    },) 
+    
 
 
   }
