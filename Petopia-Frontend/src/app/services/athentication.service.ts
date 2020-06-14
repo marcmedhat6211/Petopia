@@ -12,22 +12,19 @@ export class AthenticationService {
   constructor(private http:HttpClient, private token :TokenService) { }
 
 
-  register(data){
+  signUp(data){
     return this.http.post(`${this.baseUrl}/signup`,data)
   }
 
 
   signin(data){
+    
     return this.http.post(`${this.baseUrl}/login`,data)
   }
 
-  sendPasswordResetLink(data){
-    return this.http.post(`${this.baseUrl}/sendPsswordResetLink`,data)
-  }
+  
 
-  changePassword(data){
-    return this.http.post(`${this.baseUrl}/resetPassword`,data)
-  }
+ 
 
   reservation(data){   
     return this.http.post(`${this.baseUrl}/reservations`,data)

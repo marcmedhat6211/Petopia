@@ -18,11 +18,10 @@ class VerifyCsrfToken extends Middleware
         '/api/signup',
         '/api/pet/add', // TODO: to be removed
         
-        '/api/sendPsswordResetLink',
-        '/api/resetPassword',
         '/api/me',
         '/api/reservations',
         '/api/reservations/*',
-        '/api/boardings'
+        '/api/boardings',
+        '/api/pets'
     ];
 }

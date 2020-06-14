@@ -7,8 +7,6 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { ReservationComponent } from './components/reservation/reservation.component';
 import { AppComponent } from './app.component';
-import { RequestResetComponent } from './components/password/request-reset/request-reset.component';
-import { ResponeResetComponent } from './components/password/respone-reset/respone-reset.component';
 import { PetComponent } from './components/pet/pet.component';
 import { BoardingComponent } from './components/boarding/boarding.component';
 import { BeforeLoginService } from './services/before-login.service';
@@ -41,17 +39,6 @@ const routes: Routes = [
     path: 'login',
     component: LoginComponent,
     canActivate :[BeforeLoginService]
-  },{
-    path:'request-password-reset',
-    component:RequestResetComponent,
-    canActivate:[BeforeLoginService]
-
-  },
-  {
-    path:'response-pssword-reset',
-    component:ResponeResetComponent,
-    canActivate:[BeforeLoginService]
-
   },
   {
     path: 'calender',
@@ -70,7 +57,7 @@ const routes: Routes = [
   {
     path:'pet',
     component:PetComponent,
-    // canActivate:[AfterLoginService]
+    canActivate:[AfterLoginService]
   },
   {
     path:'boarding',

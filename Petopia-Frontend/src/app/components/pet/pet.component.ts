@@ -78,4 +78,12 @@ export class PetComponent implements OnInit {
       console.log(error)
     },) 
   }
+
+  ngAfterViewInit() {
+    let top = document.getElementById('top');
+    if(top !=null) {
+      top.scrollIntoView();
+      top=null
+    }
+  }
 }

@@ -9,9 +9,14 @@ use App\User;
 use App\Pet;
 use App\Service;
 use App\Http\Requests\ReservationRequest;
+use App\Http\Resources\ReservationResource;
+
 
 class ReservationController extends Controller
 {
+
+
+    
     /**
      * STORE NEW RESERVATION FROM CLIENT 
      * @param ReservationRequest $request
@@ -19,7 +24,7 @@ class ReservationController extends Controller
     */
     public function store(ReservationRequest $request)
     {
-        $isExists = Reservation::where('user_id',User::where('name',$request->client_name)->pluck('id')->first())
+        $isExists = Reservation::where('user_id',$request->client_id)
             ->where('pet_id',Pet::where('name',$request->pet_name)->pluck('id')->first())
             ->where('service_id',Service::where('name',$request->service_name)->pluck('id')->first())
             ->where('date',$request->date)->exists();   
@@ -30,7 +35,7 @@ class ReservationController extends Controller
         }  
 
         $reservation = new Reservation();
-        $reservation->user_id = User::where('name',$request->client_name)->pluck('id')->first();
+        $reservation->user_id = $request->client_id;
         $reservation->pet_id = Pet::where('name',$request->pet_name)->pluck('id')->first();
         $reservation->service_id = Service::where('name',$request->service_name)->pluck('id')->first();
         $reservation->date = $request->date;

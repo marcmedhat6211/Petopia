@@ -23,4 +23,8 @@ export class PetsService {
     registerPet(pet) {
       return this.httpClient.post(this.PETOPIA_BACKEND + '/api/pet/add', pet);  
    }
+
+   getPets(){
+     return this.httpClient.get(this.PETOPIA_BACKEND + '/api/pets');
+   }
 }

@@ -5,13 +5,14 @@ namespace App\Http\Controllers\API;
 use App\Pet;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\PetResource;
+use Illuminate\Support\Facades\Auth;
 
 class PetsController extends Controller
 {
     //
     public function add(Request $request)
     {    
-        // dd(request());
         $pet = Pet::create([
             'name' => request()->name,
             'user_id' => request()->user_id,
@@ -30,12 +31,23 @@ class PetsController extends Controller
       
            
         ]);
-        // Pet::create($request->all());
 
         return response()->json([
             'success'=>true, 
             'message'=>'pet added.', 
             'pet'=>$pet
         ]);
+    }
+
+    public function index()
+    {
+        // return new PetResource(
+        //     Pet::find($pet)
+        // );
+        // return Pet::where('user_id', auth()->user());
+
+        return PetResource::collection(    
+            Pet::where('user_id', auth()->user()->id)->get()
+        );
     }
 }
