@@ -105,10 +105,10 @@ class PetController extends AdminController
         $form->number('age', __('Age'));
         $form->decimal('weight', __('Weight'))->rules('required|min:1|max:2');
         $form->radio('neutered')->options(['yes' => 'Yes', 'no'=> 'No'])->default('no'); 
-        $form->textarea('previous_problems', __('Previous problems'))->rules('nullable');
-        $form->textarea('drug_allergies', __('Drug allergies'))->rules('nullable');
-        $form->textarea('current_diet', __('Current diet'));
-        $form->textarea('current_medication', __('Current medication'))->rules('nullable');
+        $form->textarea('previous_problems', __('Previous problems'))->rules('nullable')->default('none');
+        $form->textarea('drug_allergies', __('Drug allergies'))->rules('nullable')->default('none');
+        $form->textarea('current_diet', __('Current diet'))->default('none');
+        $form->textarea('current_medication', __('Current medication'))->rules('nullable')->default('none');
 
         return $form;
     }

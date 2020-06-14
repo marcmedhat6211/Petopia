@@ -25,10 +25,10 @@ class CreatePetsTable extends Migration
             $table->integer('age');
             $table->float('weight',4,2);
             $table->enum('neutered', ['yes', 'no']);
-            $table->mediumText('previous_problems');
-            $table->mediumText('drug_allergies');
-            $table->mediumText('current_diet');
-            $table->mediumText('current_medication');
+            $table->mediumText('previous_problems')->nullable();
+            $table->mediumText('drug_allergies')->nullable();
+            $table->mediumText('current_diet')->nullable();
+            $table->mediumText('current_medication')->nullable();
             $table->timestamps();
         });
     }
