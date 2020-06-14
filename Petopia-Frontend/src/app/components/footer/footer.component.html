@@ -21,9 +21,9 @@
                             Our Services
                         </h3>
                         <ul class="links">
-                            <!-- <div *ngFor="let s of service.data; let i of index">
-                                <li><a [routerLink]="['/',s.service_name,s.id]">{{s.service_name}}</a></li>
-                            </div> -->
+                            <div *ngFor="let s of service; let i of index">
+                                <li>{{s.service_name}}</li>
+                            </div>
                         </ul>
                     </div>
                 </div>

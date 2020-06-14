@@ -19,6 +19,14 @@ export class SingleComponent implements OnInit {
 
   ngOnInit(): void 
   {   
+
+      if (!localStorage.getItem('foo')) { 
+        localStorage.setItem('foo', 'no reload') 
+        location.reload() 
+        } else {
+        localStorage.removeItem('foo') 
+      } 
+
     var idString = this.route.snapshot.url[1].path;
     var idInteger  = +idString ;
     var service_name = window.location.pathname.split("/")[1].replace(/%20/g,' ');
