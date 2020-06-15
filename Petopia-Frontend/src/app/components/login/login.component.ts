@@ -13,7 +13,7 @@ import { Current_User } from '../../Current_User';
 export class LoginComponent  implements OnInit{
 
   public form={
-    email:null,
+    phone_number:null,
     password:null
   }
   public error=null
