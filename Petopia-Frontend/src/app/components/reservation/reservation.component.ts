@@ -19,9 +19,9 @@ import { Pet } from 'src/app/Pet';
 
 export class ReservationComponent implements OnInit{
     
-    constructor(private http: HttpClient, private route: ActivatedRoute,private router: Router, private athentication:AthenticationService, private token :TokenService,private pets : PetsService)
-    {}
-    
+  constructor(private http: HttpClient, private route: ActivatedRoute,private router: Router, private athentication:AthenticationService, private token :TokenService,private pets : PetsService)
+  {}
+  
     service: Service;
     pet: Pet;
 
@@ -56,31 +56,37 @@ export class ReservationComponent implements OnInit{
         pet_name:null,
       }
 
-      currentDateCheck(date)
-      {
-        var reservationDate = new Date(date);
-        var now = new Date();
-        if(reservationDate < now)
-        {
-          return false;
-        }
-        else
-        {
-          return true;
-        }
-      }
+      // currentDateCheck(date)
+      // {
+      //   var reservationDate = new Date(date);
+      //   var now = new Date();
+      //   if(reservationDate < now)
+      //   {
+      //     return false;
+      //   }
+      //   else
+      //   {
+      //     return true;
+      //   }
+      // }
 
       onSubmit(){
-        if(this.currentDateCheck(this.form.date))
-        {
           console.log(this.form);
           this.athentication.reservation(this.form).subscribe(
             (data)=>this.handleResponse(data),
-            error=>this.handleError(error),
+            error=>this.handleError(error)
           )
           localStorage.setItem('pet_name', this.form.pet_name);
           localStorage.setItem('reservation_date', this.form.date);
+      }
 
+      handleError(error){
+          this.error=error.error.errors
+      }
+
+      handleResponse(data){
+        this.token.handle(this.my_token)
+        localStorage.setItem('reservation_id', data.reservation_id)
           if(this.service_name == 'Boarding')
           {
             this.router.navigateByUrl('/boarding');
@@ -90,20 +96,6 @@ export class ReservationComponent implements OnInit{
             alert('Reservation made successfully');
             this.router.navigateByUrl('/home');
           }
-        }
-        else
-        {
-          alert('Reservation date can\'t be in the past');
-        }
-      }
-
-      handleError(error){
-        this.error=error.error.message
-      }
-
-      handleResponse(data){
-        this.token.handle(this.my_token)
-        localStorage.setItem('reservation_id', data.reservation_id)
       }
 
       ngAfterViewInit() {

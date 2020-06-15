@@ -67,7 +67,7 @@ export class BoardingComponent implements OnInit {
   }
 
   handleError(error){
-    this.error=error.error.messaidStringge
+    this.error=error.error.errors
   }
 
   handleResponse(data){

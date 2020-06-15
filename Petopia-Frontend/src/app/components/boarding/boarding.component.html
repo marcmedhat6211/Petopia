@@ -6,8 +6,10 @@
             <div class="card-body">
                 <h2 class="title">Boarding Form</h2>
                 <form #reserve=ngForm (ngSubmit)="onSubmit()">
-                    <div class="alert alert-danger" [hidden]="!error">
-                        {{error}}
+                    <div [hidden]="!error">
+                        <div class="alert alert-danger" [hidden]="!error.end_date">
+                            {{error.end_date}}
+                        </div>
                     </div>
                     <div class=" row row-space ">
                         <div class="col-6 ">

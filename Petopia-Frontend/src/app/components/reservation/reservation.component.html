@@ -5,17 +5,22 @@
         <div class="card card-4">
             <div class="card-body">
                 <h2 class="title">Reservation Form</h2>
-                <form #reserve=ngForm (ngSubmit)="onSubmit()">
-                    <div class="alert alert-danger" [hidden]="!error">
-                        {{error}}
+                <div [hidden]="!error">
+                    <div class="alert alert-danger" [hidden]="!error.pet_name">
+                        {{error.pet_name}}
                     </div>
+                    <div class="alert alert-danger" [hidden]="!error.date">
+                        {{error.date}}
+                    </div>
+                </div>  
+                <form #reserve=ngForm (ngSubmit)="onSubmit()">
                     <div class=" row row-space ">
-                        <div class="col-12 ">
+                        <!-- <div class="col-12 ">
                             <div class="input-group">
                                 <label class="label"> Current Service</label>
                                 <input class="input--style-4" type="text" value="{{service.service_name}}" name="service_name" readonly>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="col-6 ">
                             <div class="input-group ">
                                 <label class="label ">Date</label>

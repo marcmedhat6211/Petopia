@@ -32,7 +32,8 @@ class ReservationController extends Controller
         if ($isExists) 
         {
             return response()->json(['status' => 'error','message' => 'You already have a reservation']);
-        }  
+        }
+
 
         $reservation = new Reservation();
         $reservation->user_id = $request->client_id;
@@ -40,7 +41,6 @@ class ReservationController extends Controller
         $reservation->service_id = Service::where('name',$request->service_name)->pluck('id')->first();
         $reservation->date = $request->date;
         $reservation->save();
-
         return response()->json(['reservation_id' => $reservation->id ,'status' => 'success' ]);
     }
 
