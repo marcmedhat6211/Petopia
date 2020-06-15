@@ -46,7 +46,6 @@ class ReservationController extends Controller
 
     public function destroy($id)
     {
-        // dd($id);
         if(Reservation::find($id)->delete())
         {
             return response()->json([
